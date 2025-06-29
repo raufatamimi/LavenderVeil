@@ -34,9 +34,44 @@ This project was built with collaboration and passion by:
 
 ## 📸 Screenshots
 
-_Add screenshots here to showcase pages like: Home, Product Details, Cart, Checkout, Admin Dashboard..._
+---
+
+### 🏠 Home Page
+
+#### 🔼 Top Section
+![Home Top](assets/home_page_top.png)
+
+#### 🔽 Middle Section
+![Home Middle](assets/home_page_middle.png)
+
+#### 🔚 Bottom Section
+![Home Bottom](assets/home_page_buttom.png)
 
 ---
+
+### 🛠️ Admin Dashboard
+
+#### 📊 Dashboard Overview
+![Admin Overview](assets/admin_top.png)
+
+![Admin Overview](assets/admin_bottom.png)
+
+
+---
+
+### 🛍️ Products Page
+![Products Page](assets/products.png)
+
+---
+
+### 🛒 Shopping Cart
+![Cart Page](assets/cart.png)
+
+---
+
+### 💜 Wishlist
+![Wishlist Page](assets/wishlist.png)
+
 
 ## 🚀 Features
 
