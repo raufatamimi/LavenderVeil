@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Lavender_Veil.Models.Product>
+@{
+    ViewData["Title"] = "All Products";
+}
+<style>
+    body {
+        background-color: #f8f3ff;
+    }
+
+    .table thead {
+        background-color: #e0c7ff;
+        color: #4b0082;
+    }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="text-center text-purple mb-4">Product Catalog</h2>
+    <div class="text-end mb-3">
+        <a asp-action="Create" class="btn btn-success">+ Add New Product</a>
+    </div>
+
+    <table class="table table-bordered table-hover text-center bg-white shadow">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img src="@item.ImageUrl" class="img-thumbnail" style="max-height: 100px;" /></td>
+                    <td>@item.Name</td>
+                    <td>@item.Category?.Name</td>
+                    <td>@item.Size?.Name</td>
+                    <td>@item.Price</td>
+                    <td>@item.Stock</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-productId="@item.ProductId" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Details" asp-route-productId="@item.ProductId" class="btn btn-sm btn-info">Details</a>
+                        <a asp-action="Delete" asp-route-productId="@item.ProductId" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-controller="Admin" asp-action="Dashboard" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left"></i> Back
+</a>

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Lavender_Veil.Models.Payment>
+@{
+    ViewData["Title"] = "Payments Overview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .payment-table th {
+        background-color: #e6d4f0;
+        color: #4b007d;
+    }
+
+    .payment-table td, .payment-table th {
+        vertical-align: middle;
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="text-center text-purple mb-4">Payments Overview</h2>
+
+    <table class="table table-bordered table-hover payment-table bg-white shadow">
+        <thead>
+            <tr>
+                <th>Payment ID</th>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Status</th>
+                <th>Transaction ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.PaymentId</td>
+                    <td>@p.Order?.OrderId</td>
+                    <td>@p.Order?.Customer?.Name</td>
+                    <td>@p.Amount</td>
+                    <td>@p.Method</td>
+                    <td>
+                        <span class="badge bg-@(
+                            p.Status == "Completed" ? "success" :
+                            p.Status == "Pending" ? "warning" :
+                            "danger")">
+                            @p.Status
+                        </span>
+                    </td>
+                    <td>@p.TransactionId</td>
+                    <td>
+                        <form asp-action="UpdatePaymentStatus" asp-controller="Admin" method="post" class="d-flex align-items-center gap-2">
+                            <input type="hidden" name="paymentId" value="@p.PaymentId" />
+                            <select name="newStatus" class="form-select form-select-sm">
+                                <option selected disabled>@p.Status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Failed">Failed</option>
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        </form>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Back
+    </a>
+</div>
+

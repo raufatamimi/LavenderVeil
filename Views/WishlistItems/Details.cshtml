@@ -1,0 +1,46 @@
+﻿@model Lavender_Veil.Models.WishlistItem
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>WishlistItem</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Product)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Customer.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AddedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AddedAt)
+        </dd>
+    </dl>
+</div>
+<form asp-controller="Cart" asp-action="AddToCart" method="post">
+    <input type="hidden" name="productId" value="@Model.ProductId" />
+    <button class="btn btn-primary">Add to Cart</button>
+</form>
+
+<form asp-controller="Wishlist" asp-action="Add" method="post">
+    <input type="hidden" name="productId" value="@Model.ProductId" />
+    <button class="btn btn-outline-secondary">❤️ Add to Wishlist</button>
+</form>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.WishlistItemId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

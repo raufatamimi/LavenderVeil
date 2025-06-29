@@ -1,0 +1,108 @@
+﻿@model Lavender_Veil.Models.Product
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<style>
+    body {
+        background-color: #f8f3ff;
+    }
+
+    .lavender-form {
+        background-color: #fff;
+        border: 2px solid #d4b3ff;
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 800px;
+        margin: auto;
+        box-shadow: 0 0 15px rgba(212, 179, 255, 0.3);
+    }
+
+    .lavender-title {
+        color: #7e57c2;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+</style>
+
+<div class="lavender-form mt-4">
+    <h2 class="lavender-title">Edit Product</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <form asp-action="Edit" asp-route-productId="@Model.ProductId" method="post" enctype="multipart/form-data">
+
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="ProductId" />
+
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Product Name</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description" class="control-label">Description</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price" class="control-label">Price</label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Stock" class="control-label">Stock</label>
+            <input asp-for="Stock" class="form-control" />
+            <span asp-validation-for="Stock" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SizeId" class="control-label">Size</label>
+            <select asp-for="SizeId" class="form-control" asp-items="ViewBag.SizeId"></select>
+            <span asp-validation-for="SizeId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CategoryId" class="control-label">Category</label>
+            <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId" id="categorySelect">
+                <option value="">-- Select Category --</option>
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+
+        <!-- صورة حالية -->
+        <div class="form-group text-center mb-3">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" style="max-height: 200px;" class="img-thumbnail" />
+            }
+        </div>
+
+        <!-- رفع صورة جديدة -->
+        <div class="form-group">
+            <label class="control-label">Upload New Image (Optional)</label>
+            <input type="file" name="ImageFile" class="form-control" />
+        </div>
+
+        <div class="form-group mt-4 text-center">
+            <input type="submit" value="Save Changes" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>

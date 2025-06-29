@@ -1,0 +1,142 @@
+/* RTL Support for Arabic Language */
+html[dir="rtl"] {
+  /* Text alignment */
+  text-align: right;
+}
+
+html[dir="rtl"] .dropdown-menu {
+  text-align: right;
+}
+
+html[dir="rtl"] .me-2, 
+html[dir="rtl"] .me-3, 
+html[dir="rtl"] .me-4 {
+  margin-right: 0 !important;
+}
+
+html[dir="rtl"] .me-2 {
+  margin-left: 0.5rem !important;
+}
+
+html[dir="rtl"] .me-3 {
+  margin-left: 1rem !important;
+}
+
+html[dir="rtl"] .me-4 {
+  margin-left: 1.5rem !important;
+}
+
+html[dir="rtl"] .ms-2,
+html[dir="rtl"] .ms-3,
+html[dir="rtl"] .ms-4 {
+  margin-left: 0 !important;
+}
+
+html[dir="rtl"] .ms-2 {
+  margin-right: 0.5rem !important;
+}
+
+html[dir="rtl"] .ms-3 {
+  margin-right: 1rem !important;
+}
+
+html[dir="rtl"] .ms-4 {
+  margin-right: 1.5rem !important;
+}
+
+/* Flip icons that need direction change */
+html[dir="rtl"] .bi-arrow-right,
+html[dir="rtl"] .bi-chevron-right {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .bi-arrow-left,
+html[dir="rtl"] .bi-chevron-left {
+  transform: scaleX(-1);
+}
+
+/* Adjust dropdown positioning */
+html[dir="rtl"] .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+/* Adjust text direction for inputs */
+html[dir="rtl"] input,
+html[dir="rtl"] textarea {
+  text-align: right;
+}
+
+/* Adjust flexbox direction */
+html[dir="rtl"] .d-flex {
+  flex-direction: row-reverse;
+}
+
+/* Exception for specific flex containers that should maintain direction */
+html[dir="rtl"] .flex-no-reverse,
+html[dir="rtl"] .navbar-nav,
+html[dir="rtl"] .nav {
+  flex-direction: row;
+}
+
+/* Adjust header actions */
+html[dir="rtl"] .header-actions {
+  flex-direction: row-reverse;
+}
+
+/* Adjust form controls */
+html[dir="rtl"] .form-control {
+  text-align: right;
+}
+
+/* Adjust button groups */
+html[dir="rtl"] .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+html[dir="rtl"] .btn-group > .btn:not(:first-child) {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+/* Adjust list items */
+html[dir="rtl"] .list-unstyled {
+  padding-right: 0;
+}
+
+/* Adjust card elements */
+html[dir="rtl"] .card-header,
+html[dir="rtl"] .card-body,
+html[dir="rtl"] .card-footer {
+  text-align: right;
+}
+
+/* Adjust modal dialogs */
+html[dir="rtl"] .modal-header .btn-close {
+  margin: -0.5rem auto -0.5rem -0.5rem;
+}
+
+/* Adjust navigation */
+html[dir="rtl"] .navmenu ul {
+  padding-right: 0;
+}
+
+/* Adjust footer elements */
+html[dir="rtl"] .footer-links,
+html[dir="rtl"] .footer-contact {
+  text-align: right;
+}
+
+/* Make the logo bigger and clearer */
+.logo img {
+  max-height: 80px; /* Increase from default */
+  width: auto;
+  filter: contrast(1.2) brightness(1.05); /* Make it clearer */
+  margin: 5px 0;
+}
+
+/* Footer logo */
+.footer-logo img {
+  max-height: 80px;
+  width: auto;
+  filter: contrast(1.1) brightness(1.05);
+}

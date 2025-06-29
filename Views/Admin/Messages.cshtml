@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Lavender_Veil.Models.ContactMessage>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contact Messages</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Sent At</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var msg in Model)
+        {
+            <tr>
+                <td>@msg.Name</td>
+                <td>@msg.Email</td>
+                <td>@msg.Message</td>
+                <td>@msg.SentAt.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Admin" asp-action="Dashboard" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left"></i> Back
+</a>

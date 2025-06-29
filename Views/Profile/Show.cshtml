@@ -1,0 +1,1689 @@
+﻿<!DOCTYPE html>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>LavenderVeil - Account</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="/Images/Lavender_Veil_logo-Photoroom.png" rel="icon">
+    <link href="/Images/Lavender_Veil_logo-Photoroom.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/drift-zoom/drift-basic.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/rtl.css" rel="stylesheet">
+    <style>
+        .search-bar {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .search-input {
+            border: 2px solid #c8a2c8;
+            border-radius: 25px 0 0 25px;
+            padding: 10px 15px;
+            background-color: #fdfdff;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(123, 104, 238, 0.1);
+        }
+
+            .search-input:focus {
+                border-color: #9370db;
+                box-shadow: 0 0 8px rgba(147, 112, 219, 0.3);
+            }
+
+        .btn-search {
+            border: 2px solid #c8a2c8;
+            background-color: #c8a2c8;
+            color: white;
+            border-radius: 0 25px 25px 0;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+            .btn-search:hover {
+                background-color: #b57edc;
+                color: #fff;
+            }
+    </style>
+
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header position-relative">
+        @* <!-- Top Bar --> *@
+        @* <div class="top-bar py-2 d-none d-lg-block"> *@
+        @*     <div class="container-fluid container-xl"> *@
+        @*         <div class="row align-items-center"> *@
+        @*             <div class="col-lg-6"> *@
+        @*                 <div class="d-flex align-items-center"> *@
+        @*                     <div class="top-bar-item me-4"> *@
+        @*                         <i class="bi bi-telephone-fill me-2"></i> *@
+        @*                         <span data-translate-key="customer_support">Customer Support: </span> *@
+        @*                         <a href="tel:+962788314974">+962 78 831 4974</a> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item"> *@
+        @*                         <i class="bi bi-envelope-fill me-2"></i> *@
+        @*                         <a href="mailto:lavenderveilzuj@gmail.com">lavenderveilzuj@gmail.com</a> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <div class="col-lg-6"> *@
+        @*                 <div class="d-flex justify-content-end"> *@
+        @*                     <div class="top-bar-item me-4"> *@
+        @*                         <a href="track-order.html"> *@
+        @*                             <i class="bi bi-truck me-2"></i><span data-translate-key="track_order">Track Order</span> *@
+        @*                         </a> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item dropdown me-4"> *@
+        @*                         <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"> *@
+        @*                             <i class="bi bi-translate me-2"></i>English *@
+        @*                         </a> *@
+        @*                         <ul class="dropdown-menu me-4"> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="ar">العربية</a></li> *@
+        @*                             <li><a class="dropdown-item active" href="#" data-lang="en"><i class="bi bi-check2 me-2 selected-icon"></i>English</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="es">Español</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li> *@
+        @*                         </ul> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item dropdown"> *@
+        @*                         <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"> *@
+        @*                             <i class="bi bi-currency-dollar me-2"></i>USD *@
+        @*                         </a> *@
+        @*                         <ul class="dropdown-menu"> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="JOR"><i class="bi bi-check2 me-2 selected-icon"></i>JOR</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="USD">USD</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="EUR">EUR</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="GBP">GBP</a></li> *@
+        @*                         </ul> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+        @*         </div> *@
+        @*     </div> *@
+        @* </div> *@
+
+        <!-- Main Header -->
+        <div class="main-header">
+            <div class="container-fluid container-xl">
+                <div class="d-flex py-3 align-items-center justify-content-between">
+
+                    <!-- Logo -->
+                    <a href="index.html">
+                        <img src="/Images/LavenderVeil_FullLogo.svg" style="width: 250px; height: auto;" alt="Lavender Veil Logo">
+                    </a>
+
+                    <form asp-controller="Products" asp-action="Search" method="get" class="search-bar d-flex align-items-center">
+                        <div class="input-group">
+                            <input type="search" name="query" class="form-control search-input" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-search" type="submit">
+                                🔍
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Actions -->
+                    <div class="header-actions d-flex align-items-center justify-content-end">
+
+                        <!-- Mobile Search Toggle -->
+                        <button class="header-action-btn mobile-search-toggle d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-expanded="false" aria-controls="mobileSearch">
+                            <i class="bi bi-search"></i>
+                        </button>
+
+                        <!-- Account -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="dropdown account-dropdown">
+                                <button class="header-action-btn" data-bs-toggle="dropdown">
+                                    <i class="bi bi-person"></i>
+                                    <span class="action-text d-none d-md-inline-block" data-translate-key="account">Account</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-header">
+                                        <h6>Welcome to <span class="sitename">LavenderVeil</span></h6>
+                                        <p class="mb-0">Access account &amp; manage orders</p>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="Profile" asp-action="Index">
+                                            <i class="bi bi-person-circle me-2"></i>
+                                            <span>My Profile</span>
+                                        </a>
+
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="Profile" asp-action="Orders">
+                                            <i class="bi bi-bag-check me-2"></i>
+                                            <span>My Orders</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="WishlistItems" asp-action="Index">
+                                            <i class="bi bi-heart me-2"></i>
+                                            <span>My Wishlist</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-footer">
+                                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline w-100">
+                                            <button type="submit" class="btn btn-outline-secondary w-100">Logout</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <a asp-controller="Account" asp-action="Login" class="btn btn-lavender login-button">
+                                <i class="bi bi-box-arrow-in-right me-1"></i>
+                                <span class="action-text">Login</span>
+                            </a>
+                        }
+
+                        <!-- Wishlist -->
+                        <a asp-controller="WishlistItems" asp-action="Index" class="header-action-btn d-none d-md-flex">
+                            <i class="bi bi-heart"></i>
+                            <span class="action-text d-none d-md-inline-block" data-translate-key="wishlist">Wishlist</span>
+                            
+                        </a>
+
+
+                        <!-- Cart -->
+                        <a asp-controller="CartItems" asp-action="Index" class="header-action-btn d-none d-md-flex">
+                            <i class="bi bi-cart3"></i>
+                            <span class="action-text d-none d-md-inline-block" data-translate-key="cart">Cart</span>
+                            
+                        </a>
+
+
+                        <!-- Mobile Navigation Toggle -->
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list me-0"></i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="header-nav">
+            <div class="container-fluid container-xl position-relative">
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index" class="active"><span data-translate-key="nav_home">Home</span></a></li>
+                        <li><a asp-controller="Home" asp-action="About"><span data-translate-key="nav_about">About</span></a></li>
+                        <li><a asp-controller="Products" asp-action="ByCategory"><span data-translate-key="nav_category">Category</span></a></li>
+                        <li><a asp-controller="Products" asp-action="Shop"><span data-translate-key="nav_product_details">Products</span></a></li>
+                        <li><a asp-controller="CartItems" asp-action="Index"><span data-translate-key="nav_cart">Cart</span></a></li>
+                        <li><a asp-controller="Profile" asp-action="Orders"><span data-translate-key="nav_checkout">My Orders</span></asp-controller></a></li>
+
+
+                        <!-- End Products Mega Menu 1 -->
+                        <!-- Products Mega Menu 1 =========================================================================== 1 -->
+                        <!-- Products Menu -->
+                        <li class="products-megamenu-2">
+                            <a href="#"><span>Menu</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+
+                            <!-- Products Menu Mobile View -->
+                            <ul class="mobile-megamenu">
+
+                                <li class="dropdown">
+                                    <a href="#"><span>Clothing</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                    <ul>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="1">Skirts</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="3">Hijabs</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="4">Swimwear</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="5">Abayas</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="6">Tops</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="7">Outwear Sets</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="9">Dresses</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="10">Thobes</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="11">Prayer set</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#"><span>Accessories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                    <ul>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="2">Accessories</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="8">Hijab's Accessories</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul><!-- End Products Menu Mobile View -->
+                            <!-- Products Menu Desktop View -->
+                            <div class="desktop-megamenu">
+
+                                <!-- Tabs Content -->
+                                <div class="megamenu-content tab-content">
+
+                                    <!-- Women Tab -->
+                                    <div class="tab-pane fade show active" role="tabpanel">
+                                        <div class="category-layout">
+                                            <div class="categories-section">
+                                                <div class="category-headers">
+                                                    <h4>Clothing</h4>
+                                                    <h4>Accessories</h4>
+                                                </div>
+
+                                                <div class="category-links">
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="1">Skirts</a>
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="2">Accessories</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="3">Hijabs</a>
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="8">Hijab's Accessories</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="4">Swimwear</a>
+                                                        <a asp-controller="Products" asp-action="Shop" >View all</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="5">Abayas</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="6">Tops</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="7">Outwear Sets</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="9">Dresses</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="10">Thobes</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="11">Prayer set</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="Shop" >View all</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="featured-section">
+                                                <div class="featured-image">
+                                                    <img src="/Images/product/Dresses/photo_5877542043566328620_y.jpg" alt="Featured Dresses Collection" class="img-fluid" style="height: 85%; width: auto;">
+                                                    <div class="featured-content">
+                                                        <h3>New<br>Dresses<br>Collection</h3>
+                                                        <a asp-controller="Products" asp-action="Shop" class="btn-shop">Shop now</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div><!-- End Products Menu Desktop View -->
+
+                        </li><!-- End Products Menu -->
+
+                        <li><a asp-controller="Contact" asp-action="Contact"><span data-translate-key="nav_contact">Contact</span></a></li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Announcement Bar -->
+        <div class="announcement-bar py-2">
+            <div class="container-fluid container-xl">
+                <div class="announcement-slider swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                            "delay": 5000
+                          },
+                          "slidesPerView": 1,
+                          "effect": "slide",
+                          "direction": "vertical"
+                        }
+                    </script>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">🚚 Free shipping on orders over $50</div>
+                        <div class="swiper-slide">💰 30 days money back guarantee</div>
+                        <div class="swiper-slide">🎁 20% off on your first order - Use code: FIRST20</div>
+                        <div class="swiper-slide">⚡ Flash Sale! Up to 70% off on selected items</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Form -->
+        <div class="collapse" id="mobileSearch">
+            <div class="container">
+                <form class="search-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for products...">
+                        <button class="btn search-btn" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="main">
+
+        <!-- Page Title -->
+        <div class="page-title light-background">
+            <div class="container">
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a asp-controller="Home"  asp-action="Index">Home</a></li>
+                        <li class="current">Account</li>
+                    </ol>
+                </nav>
+                <h1>Account</h1>
+            </div>
+        </div><!-- End Page Title -->
+        <!-- Account Section -->
+        <section id="account" class="account section">
+
+            <div class="container">
+
+                <!-- Mobile Sidebar Toggle Button -->
+                <div class="sidebar-toggle d-lg-none mb-3">
+                    <button class="btn btn-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#profileSidebar" aria-expanded="false" aria-controls="profileSidebar">
+                        <i class="bi bi-list me-2"></i> Profile Menu
+                    </button>
+                </div>
+
+                <div class="row">
+                    <!-- Profile Sidebar -->
+                    <div class="col-lg-3 profile-sidebar collapse d-lg-block" id="profileSidebar">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <span>S</span>
+                            </div>
+                            <div class="profile-info">
+                                <h4>Sarah Anderson</h4>
+                                <div class="profile-bonus">
+                                    <i class="bi bi-gift"></i>
+                                    <span>100 bonuses available</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-nav">
+                            <ul class="nav flex-column" id="profileTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button" role="tab" aria-controls="orders" aria-selected="true">
+                                        <i class="bi bi-box-seam"></i>
+                                        <span>Orders</span>
+                                        <span class="badge">1</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="wishlist-tab" data-bs-toggle="tab" data-bs-target="#wishlist" type="button" role="tab" aria-controls="wishlist" aria-selected="false">
+                                        <i class="bi bi-heart"></i>
+                                        <span>Wishlist</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="payment-tab" data-bs-toggle="tab" data-bs-target="#payment" type="button" role="tab" aria-controls="payment" aria-selected="false">
+                                        <i class="bi bi-credit-card"></i>
+                                        <span>Payment methods</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">
+                                        <i class="bi bi-star"></i>
+                                        <span>My reviews</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button" role="tab" aria-controls="personal" aria-selected="false">
+                                        <i class="bi bi-person"></i>
+                                        <span>Personal info</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="addresses-tab" data-bs-toggle="tab" data-bs-target="#addresses" type="button" role="tab" aria-controls="addresses" aria-selected="false">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <span>Addresses</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="notifications-tab" data-bs-toggle="tab" data-bs-target="#notifications" type="button" role="tab" aria-controls="notifications" aria-selected="false">
+                                        <i class="bi bi-bell"></i>
+                                        <span>Notifications</span>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <h6 class="nav-section-title">Customer service</h6>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="support" class="nav-link">
+                                        <i class="bi bi-question-circle"></i>
+                                        <span>Help center</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="tos" class="nav-link">
+                                        <i class="bi bi-file-text"></i>
+                                        <span>Terms and conditions</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link logout">
+                                        <i class="bi bi-box-arrow-right"></i>
+                                        <span>Log out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Profile Content -->
+                    <div class="col-lg-9 profile-content">
+                        <div class="tab-content" id="profileTabsContent">
+                            <!-- Orders Tab -->
+                            <div class="tab-pane fade show active" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                                <div class="tab-header">
+                                    <h2>Orders</h2>
+                                    <div class="tab-filters">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3 mb-md-0">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" id="statusFilter" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <span>Select status</span>
+                                                        <i class="bi bi-chevron-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="statusFilter">
+                                                        <li><a class="dropdown-item" href="#">All statuses</a></li>
+                                                        <li><a class="dropdown-item" href="#">In progress</a></li>
+                                                        <li><a class="dropdown-item" href="#">Delivered</a></li>
+                                                        <li><a class="dropdown-item" href="#">Canceled</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" id="timeFilter" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <span>For all time</span>
+                                                        <i class="bi bi-chevron-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="timeFilter">
+                                                        <li><a class="dropdown-item" href="#">For all time</a></li>
+                                                        <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                                                        <li><a class="dropdown-item" href="#">Last 6 months</a></li>
+                                                        <li><a class="dropdown-item" href="#">Last year</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="orders-table">
+                                    <div class="table-header">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="sort-header">
+                                                    Order #
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="sort-header">
+                                                    Order date
+                                                    <i class="bi bi-arrow-down-up"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="sort-header">
+                                                    Status
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="sort-header">
+                                                    Total
+                                                    <i class="bi bi-arrow-down-up"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="order-items">
+                                        <!-- Order Item 1 -->
+                                        <div class="order-item">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-3">
+                                                    <div class="order-id">78A6431D409</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-date">02/15/2025</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-status in-progress">
+                                                        <span class="status-dot"></span>
+                                                        <span>In progress</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-total">$2,105.90</div>
+                                                </div>
+                                            </div>
+                                            <div class="order-products">
+                                                <div class="product-thumbnails">
+                                                    <img src="/Images/product/Robes/photo_5877685448229373611_y.jpg" alt="Product" class="product-thumb" loading="lazy">
+                                                    <img src="/Images/product/Dresses/photo_5877542043566328626_y.jpg" alt="Product" class="product-thumb" loading="lazy">
+                                                    <img src="/Images/product/Hijabs/photo_5877542043566328674_y.jpg" alt="Product" class="product-thumb" loading="lazy">
+                                                </div>
+                                                <button type="button" class="order-details-link" data-bs-toggle="collapse" data-bs-target="#orderDetails1" aria-expanded="false" aria-controls="orderDetails1">
+                                                    <i class="bi bi-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="collapse order-details" id="orderDetails1">
+                                                <div class="order-details-content">
+                                                    <div class="order-details-header">
+                                                        <h5>Order Details</h5>
+                                                        <div class="order-info">
+                                                            <div class="info-item">
+                                                                <span class="info-label">Order Date:</span>
+                                                                <span class="info-value">02/15/2025</span>
+                                                            </div>
+                                                            <div class="info-item">
+                                                                <span class="info-label">Payment Method:</span>
+                                                                <span class="info-value">Credit Card (**** 4589)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-items-list">
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/Robes/photo_5877685448229373611_y.jpg" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Classic Black Thobe</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-001</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$899.99</div>
+                                                        </div>
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/Dresses/photo_5877542043566328626_y.jpg" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Elegant Maxi Dress</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-002</span>
+                                                                    <span class="item-qty">Qty: 2</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$599.95</div>
+                                                        </div>
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/Hijabs/photo_5877542043566328674_y.jpg" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Premium Jersey Hijab</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-003</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$129.99</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-summary">
+                                                        <div class="summary-row">
+                                                            <span>Subtotal:</span>
+                                                            <span>$1,929.93</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Shipping:</span>
+                                                            <span>$15.99</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Tax:</span>
+                                                            <span>$159.98</span>
+                                                        </div>
+                                                        <div class="summary-row total">
+                                                            <span>Total:</span>
+                                                            <span>$2,105.90</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <div class="shipping-address">
+                                                            <h6>Shipping Address</h6>
+                                                            <p>123 Main Street<br>Apt 4B<br>New York, NY 10001<br>United States</p>
+                                                        </div>
+                                                        <div class="shipping-method">
+                                                            <h6>Shipping Method</h6>
+                                                            <p>Express Delivery (2-3 business days)</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Order Item -->
+                                        <!-- Order Item 2 -->
+                                        <div class="order-item">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-3">
+                                                    <div class="order-id">47H76G09F33</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-date">12/10/2024</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-status delivered">
+                                                        <span class="status-dot"></span>
+                                                        <span>Delivered</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-total">$360.75</div>
+                                                </div>
+                                            </div>
+                                            <div class="order-products">
+                                                <div class="product-thumbnails">
+                                                    <img src="/Images/product/product-4.webp" alt="Product" class="product-thumb" loading="lazy">
+                                                </div>
+                                                <button type="button" class="order-details-link" data-bs-toggle="collapse" data-bs-target="#orderDetails2" aria-expanded="false" aria-controls="orderDetails2">
+                                                    <i class="bi bi-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="collapse order-details" id="orderDetails2">
+                                                <div class="order-details-content">
+                                                    <div class="order-details-header">
+                                                        <h5>Order Details</h5>
+                                                        <div class="order-info">
+                                                            <div class="info-item">
+                                                                <span class="info-label">Order Date:</span>
+                                                                <span class="info-value">12/10/2024</span>
+                                                            </div>
+                                                            <div class="info-item">
+                                                                <span class="info-label">Payment Method:</span>
+                                                                <span class="info-value">Credit Card (**** 7821)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-items-list">
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-4.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Ut enim ad minim veniam</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-004</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$329.99</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-summary">
+                                                        <div class="summary-row">
+                                                            <span>Subtotal:</span>
+                                                            <span>$329.99</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Shipping:</span>
+                                                            <span>$9.99</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Tax:</span>
+                                                            <span>$20.77</span>
+                                                        </div>
+                                                        <div class="summary-row total">
+                                                            <span>Total:</span>
+                                                            <span>$360.75</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <div class="shipping-address">
+                                                            <h6>Shipping Address</h6>
+                                                            <p>123 Main Street<br>Apt 4B<br>New York, NY 10001<br>United States</p>
+                                                        </div>
+                                                        <div class="shipping-method">
+                                                            <h6>Shipping Method</h6>
+                                                            <p>Standard Shipping (5-7 business days)</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Order Item -->
+                                        <!-- Order Item 3 -->
+                                        <div class="order-item">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-3">
+                                                    <div class="order-id">502TR872W2</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-date">11/05/2024</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-status delivered">
+                                                        <span class="status-dot"></span>
+                                                        <span>Delivered</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-total">$4,268.00</div>
+                                                </div>
+                                            </div>
+                                            <div class="order-products">
+                                                <div class="product-thumbnails">
+                                                    <img src="/Images/product/product-5.webp" alt="Product" class="product-thumb" loading="lazy">
+                                                    <img src="/Images/product/product-6.webp" alt="Product" class="product-thumb" loading="lazy">
+                                                    <img src="/Images/product/product-7.webp" alt="Product" class="product-thumb" loading="lazy">
+                                                    <span class="more-products">+1</span>
+                                                </div>
+                                                <button type="button" class="order-details-link" data-bs-toggle="collapse" data-bs-target="#orderDetails3" aria-expanded="false" aria-controls="orderDetails3">
+                                                    <i class="bi bi-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="collapse order-details" id="orderDetails3">
+                                                <div class="order-details-content">
+                                                    <div class="order-details-header">
+                                                        <h5>Order Details</h5>
+                                                        <div class="order-info">
+                                                            <div class="info-item">
+                                                                <span class="info-label">Order Date:</span>
+                                                                <span class="info-value">11/05/2024</span>
+                                                            </div>
+                                                            <div class="info-item">
+                                                                <span class="info-label">Payment Method:</span>
+                                                                <span class="info-value">Credit Card (**** 4589)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-items-list">
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-5.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Quis nostrud exercitation</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-005</span>
+                                                                    <span class="item-qty">Qty: 2</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$1,299.99</div>
+                                                        </div>
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-6.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Ullamco laboris nisi</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-006</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$799.99</div>
+                                                        </div>
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-7.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Aliquip ex ea commodo</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-007</span>
+                                                                    <span class="item-qty">Qty: 3</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$449.99</div>
+                                                        </div>
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-8.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Duis aute irure dolor</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-008</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$249.99</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-summary">
+                                                        <div class="summary-row">
+                                                            <span>Subtotal:</span>
+                                                            <span>$3,899.94</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Shipping:</span>
+                                                            <span>$29.99</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Tax:</span>
+                                                            <span>$338.07</span>
+                                                        </div>
+                                                        <div class="summary-row total">
+                                                            <span>Total:</span>
+                                                            <span>$4,268.00</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <div class="shipping-address">
+                                                            <h6>Shipping Address</h6>
+                                                            <p>456 Business Ave<br>Suite 200<br>San Francisco, CA 94107<br>United States</p>
+                                                        </div>
+                                                        <div class="shipping-method">
+                                                            <h6>Shipping Method</h6>
+                                                            <p>Premium Delivery (1-2 business days)</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Order Item -->
+                                        <!-- Order Item 4 -->
+                                        <div class="order-item">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-3">
+                                                    <div class="order-id">34VB5540K83</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-date">09/22/2024</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-status canceled">
+                                                        <span class="status-dot"></span>
+                                                        <span>Canceled</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-total">$987.50</div>
+                                                </div>
+                                            </div>
+                                            <div class="order-products">
+                                                <div class="product-thumbnails">
+                                                    <img src="/Images/product/product-8.webp" alt="Product" class="product-thumb" loading="lazy">
+                                                    <img src="/Images/product/product-9.webp" alt="Product" class="product-thumb" loading="lazy">
+                                                </div>
+                                                <button type="button" class="order-details-link" data-bs-toggle="collapse" data-bs-target="#orderDetails4" aria-expanded="false" aria-controls="orderDetails4">
+                                                    <i class="bi bi-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="collapse order-details" id="orderDetails4">
+                                                <div class="order-details-content">
+                                                    <div class="order-details-header">
+                                                        <h5>Order Details</h5>
+                                                        <div class="order-info">
+                                                            <div class="info-item">
+                                                                <span class="info-label">Order Date:</span>
+                                                                <span class="info-value">09/22/2024</span>
+                                                            </div>
+                                                            <div class="info-item">
+                                                                <span class="info-label">Payment Method:</span>
+                                                                <span class="info-value">Credit Card (**** 7821)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-items-list">
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-8.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>In reprehenderit in voluptate</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-008</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$499.99</div>
+                                                        </div>
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-9.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Velit esse cillum dolore</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-009</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$399.99</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-summary">
+                                                        <div class="summary-row">
+                                                            <span>Subtotal:</span>
+                                                            <span>$899.98</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Shipping:</span>
+                                                            <span>$12.99</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Tax:</span>
+                                                            <span>$74.53</span>
+                                                        </div>
+                                                        <div class="summary-row total">
+                                                            <span>Total:</span>
+                                                            <span>$987.50</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <div class="shipping-address">
+                                                            <h6>Shipping Address</h6>
+                                                            <p>123 Main Street<br>Apt 4B<br>New York, NY 10001<br>United States</p>
+                                                        </div>
+                                                        <div class="shipping-method">
+                                                            <h6>Shipping Method</h6>
+                                                            <p>Standard Shipping (5-7 business days)</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Order Item -->
+                                        <!-- Order Item 5 -->
+                                        <div class="order-item">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-3">
+                                                    <div class="order-id">112P45A90V2</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-date">05/18/2024</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-status delivered">
+                                                        <span class="status-dot"></span>
+                                                        <span>Delivered</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-total">$53.00</div>
+                                                </div>
+                                            </div>
+                                            <div class="order-products">
+                                                <div class="product-thumbnails">
+                                                    <img src="/Images/product/product-10.webp" alt="Product" class="product-thumb" loading="lazy">
+                                                </div>
+                                                <button type="button" class="order-details-link" data-bs-toggle="collapse" data-bs-target="#orderDetails5" aria-expanded="false" aria-controls="orderDetails5">
+                                                    <i class="bi bi-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="collapse order-details" id="orderDetails5">
+                                                <div class="order-details-content">
+                                                    <div class="order-details-header">
+                                                        <h5>Order Details</h5>
+                                                        <div class="order-info">
+                                                            <div class="info-item">
+                                                                <span class="info-label">Order Date:</span>
+                                                                <span class="info-value">05/18/2024</span>
+                                                            </div>
+                                                            <div class="info-item">
+                                                                <span class="info-label">Payment Method:</span>
+                                                                <span class="info-value">Credit Card (**** 4589)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-items-list">
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-10.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Eu fugiat nulla pariatur</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-010</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$49.99</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-summary">
+                                                        <div class="summary-row">
+                                                            <span>Subtotal:</span>
+                                                            <span>$49.99</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Shipping:</span>
+                                                            <span>$0.00</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Tax:</span>
+                                                            <span>$3.01</span>
+                                                        </div>
+                                                        <div class="summary-row total">
+                                                            <span>Total:</span>
+                                                            <span>$53.00</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <div class="shipping-address">
+                                                            <h6>Shipping Address</h6>
+                                                            <p>123 Main Street<br>Apt 4B<br>New York, NY 10001<br>United States</p>
+                                                        </div>
+                                                        <div class="shipping-method">
+                                                            <h6>Shipping Method</h6>
+                                                            <p>Free Shipping (7-10 business days)</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Order Item -->
+                                        <!-- Order Item 6 -->
+                                        <div class="order-item">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-3">
+                                                    <div class="order-id">28BA67U0981</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-date">04/03/2024</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-status canceled">
+                                                        <span class="status-dot"></span>
+                                                        <span>Canceled</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="order-total">$1,029.50</div>
+                                                </div>
+                                            </div>
+                                            <div class="order-products">
+                                                <div class="product-thumbnails">
+                                                    <img src="/Images/product/product-11.webp" alt="Product" class="product-thumb" loading="lazy">
+                                                    <img src="/Images/product/product-1-variant.webp" alt="Product" class="product-thumb" loading="lazy">
+                                                </div>
+                                                <button type="button" class="order-details-link" data-bs-toggle="collapse" data-bs-target="#orderDetails6" aria-expanded="false" aria-controls="orderDetails6">
+                                                    <i class="bi bi-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            <div class="collapse order-details" id="orderDetails6">
+                                                <div class="order-details-content">
+                                                    <div class="order-details-header">
+                                                        <h5>Order Details</h5>
+                                                        <div class="order-info">
+                                                            <div class="info-item">
+                                                                <span class="info-label">Order Date:</span>
+                                                                <span class="info-value">04/03/2024</span>
+                                                            </div>
+                                                            <div class="info-item">
+                                                                <span class="info-label">Payment Method:</span>
+                                                                <span class="info-value">Credit Card (**** 7821)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-items-list">
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-11.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Excepteur sint occaecat</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-011</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$599.99</div>
+                                                        </div>
+                                                        <div class="order-item-detail">
+                                                            <div class="item-image">
+                                                                <img src="/Images/product/product-1-variant.webp" alt="Product" loading="lazy">
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <h6>Cupidatat non proident</h6>
+                                                                <div class="item-meta">
+                                                                    <span class="item-sku">SKU: PRD-001-V</span>
+                                                                    <span class="item-qty">Qty: 1</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-price">$349.99</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="order-summary">
+                                                        <div class="summary-row">
+                                                            <span>Subtotal:</span>
+                                                            <span>$949.98</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Shipping:</span>
+                                                            <span>$0.00</span>
+                                                        </div>
+                                                        <div class="summary-row">
+                                                            <span>Tax:</span>
+                                                            <span>$79.52</span>
+                                                        </div>
+                                                        <div class="summary-row total">
+                                                            <span>Total:</span>
+                                                            <span>$1,029.50</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <div class="shipping-address">
+                                                            <h6>Shipping Address</h6>
+                                                            <p>456 Business Ave<br>Suite 200<br>San Francisco, CA 94107<br>United States</p>
+                                                        </div>
+                                                        <div class="shipping-method">
+                                                            <h6>Shipping Method</h6>
+                                                            <p>Free Express Shipping (1-2 business days)</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cancellation-info mt-3">
+                                                        <h6>Cancellation Reason</h6>
+                                                        <p>Order was canceled at customer's request. Items were not in stock at the time of processing.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Order Item -->
+                                    </div>
+
+                                    <div class="pagination-container">
+                                        <nav aria-label="Orders pagination">
+                                            <ul class="pagination">
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Wishlist Tab -->
+                            <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
+                                <div class="tab-header">
+                                    <h2>Wishlist</h2>
+                                </div>
+                                <div class="wishlist-items">
+                                    <div class="row">
+                                        <!-- Wishlist Item 1 -->
+                                        <div class="col-md-6 col-lg-4 mb-4">
+                                            <div class="wishlist-item">
+                                                <div class="wishlist-image">
+                                                    <img src="/Images/product/Accessories/photo_5877542043566328396_y.jpg" alt="Product" loading="lazy">
+                                                    <button class="remove-wishlist" type="button">
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="wishlist-content">
+                                                    <h5>Lorem ipsum dolor sit amet</h5>
+                                                    <div class="product-price">$129.99</div>
+                                                    <button class="btn btn-add-cart">Add to cart</button>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Wishlist Item -->
+                                        <!-- Wishlist Item 2 -->
+                                        <div class="col-md-6 col-lg-4 mb-4">
+                                            <div class="wishlist-item">
+                                                <div class="wishlist-image">
+                                                    <img src="/Images/product/product-2.webp" alt="Product" loading="lazy">
+                                                    <button class="remove-wishlist" type="button">
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="wishlist-content">
+                                                    <h5>Consectetur adipiscing elit</h5>
+                                                    <div class="product-price">$89.50</div>
+                                                    <button class="btn btn-add-cart">Add to cart</button>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Wishlist Item -->
+                                        <!-- Wishlist Item 3 -->
+                                        <div class="col-md-6 col-lg-4 mb-4">
+                                            <div class="wishlist-item">
+                                                <div class="wishlist-image">
+                                                    <img src="/Images/product/product-3.webp" alt="Product" loading="lazy">
+                                                    <button class="remove-wishlist" type="button">
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="wishlist-content">
+                                                    <h5>Sed do eiusmod tempor</h5>
+                                                    <div class="product-price">$199.99</div>
+                                                    <button class="btn btn-add-cart">Add to cart</button>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Wishlist Item -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment Methods Tab -->
+                            <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
+                                <div class="tab-header">
+                                    <h2>Payment Methods</h2>
+                                    <button class="btn btn-add-payment" type="button">
+                                        <i class="bi bi-plus-lg"></i> Add payment method
+                                    </button>
+                                </div>
+                                <div class="payment-methods">
+                                    <!-- Payment Method 1 -->
+                                    <div class="payment-method-item">
+                                        <div class="payment-card">
+                                            <div class="card-type">
+                                                <i class="bi bi-credit-card"></i>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-number">**** **** **** 4589</div>
+                                                <div class="card-expiry">Expires 09/2026</div>
+                                            </div>
+                                            <div class="card-actions">
+                                                <button class="btn-edit-card" type="button">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn-delete-card" type="button">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="default-badge">Default</div>
+                                    </div><!-- End Payment Method -->
+                                    <!-- Payment Method 2 -->
+                                    <div class="payment-method-item">
+                                        <div class="payment-card">
+                                            <div class="card-type">
+                                                <i class="bi bi-credit-card"></i>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-number">**** **** **** 7821</div>
+                                                <div class="card-expiry">Expires 05/2025</div>
+                                            </div>
+                                            <div class="card-actions">
+                                                <button class="btn-edit-card" type="button">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn-delete-card" type="button">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-make-default" type="button">Make default</button>
+                                    </div><!-- End Payment Method -->
+                                </div>
+                            </div>
+
+                            <!-- Reviews Tab -->
+                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                <div class="tab-header">
+                                    <h2>My Reviews</h2>
+                                </div>
+                                <div class="reviews-list">
+                                    <!-- Review Item 1 -->
+                                    <div class="review-item">
+                                        <div class="review-header">
+                                            <div class="review-product">
+                                                <img src="/Images/product/Accessories/photo_5877542043566328395_y.jpg" alt="Product" class="product-image" loading="lazy">
+                                                <div class="product-info">
+                                                    <h5>Lorem ipsum dolor sit amet</h5>
+                                                    <div class="review-date">Reviewed on 01/15/2025</div>
+                                                </div>
+                                            </div>
+                                            <div class="review-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                                        </div>
+                                        <div class="review-actions">
+                                            <button class="btn btn-sm btn-edit-review" type="button">Edit</button>
+                                            <button class="btn btn-sm btn-delete-review" type="button">Delete</button>
+                                        </div>
+                                    </div><!-- End Review Item -->
+                                    <!-- Review Item 2 -->
+                                    <div class="review-item">
+                                        <div class="review-header">
+                                            <div class="review-product">
+                                                <img src="/Images/product/Sets/photo_5877542043566328468_y.jpg" alt="Product" class="product-image" loading="lazy">
+                                                <div class="product-info">
+                                                    <h5>Consectetur adipiscing elit</h5>
+                                                    <div class="review-date">Reviewed on 12/03/2024</div>
+                                                </div>
+                                            </div>
+                                            <div class="review-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-content">
+                                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        </div>
+                                        <div class="review-actions">
+                                            <button class="btn btn-sm btn-edit-review" type="button">Edit</button>
+                                            <button class="btn btn-sm btn-delete-review" type="button">Delete</button>
+                                        </div>
+                                    </div><!-- End Review Item -->
+                                </div>
+                            </div>
+
+                            <!-- Personal Info Tab -->
+                            <div class="tab-pane fade" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                                <div class="tab-header">
+                                    <h2>Personal Information</h2>
+                                </div>
+                                <div class="personal-info-form">
+                                    <form class="php-email-form">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="firstName" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="firstName" name="firstName" value="Lorem" required="">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="lastName" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="lastName" name="lastName" value="Ipsum" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email" value="lorem@example.com" required="">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="phone" class="form-label">Phone</label>
+                                                <input type="tel" class="form-control" id="phone" name="phone" value="+1 (555) 123-4567">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="birthdate" class="form-label">Date of Birth</label>
+                                            <input type="date" class="form-control" id="birthdate" name="birthdate" value="1990-01-01">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label d-block">Gender</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male" checked="">
+                                                <label class="form-check-label" for="genderMale">Male</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female">
+                                                <label class="form-check-label" for="genderFemale">Female</label>
+                                            </div>
+                                        </div>
+                                        <div class="loading">Loading</div>
+                                        <div class="error-message"></div>
+                                        <div class="sent-message">Your information has been updated. Thank you!</div>
+                                        <div class="text-end">
+                                            <button type="submit" class="btn btn-save">Save Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Addresses Tab -->
+                            <div class="tab-pane fade" id="addresses" role="tabpanel" aria-labelledby="addresses-tab">
+                                <div class="tab-header">
+                                    <h2>My Addresses</h2>
+                                    <button class="btn btn-add-address" type="button">
+                                        <i class="bi bi-plus-lg"></i> Add new address
+                                    </button>
+                                </div>
+                                <div class="addresses-list">
+                                    <div class="row">
+                                        <!-- Address Item 1 -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="address-item">
+                                                <div class="address-header">
+                                                    <h5>Home Address</h5>
+                                                    <div class="address-actions">
+                                                        <button class="btn-edit-address" type="button">
+                                                            <i class="bi bi-pencil"></i>
+                                                        </button>
+                                                        <button class="btn-delete-address" type="button">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="address-content">
+                                                    <p>123 Main Street<br>Apt 4B<br>New York, NY 10001<br>United States</p>
+                                                </div>
+                                                <div class="default-badge">Default</div>
+                                            </div>
+                                        </div><!-- End Address Item -->
+                                        <!-- Address Item 2 -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="address-item">
+                                                <div class="address-header">
+                                                    <h5>Work Address</h5>
+                                                    <div class="address-actions">
+                                                        <button class="btn-edit-address" type="button">
+                                                            <i class="bi bi-pencil"></i>
+                                                        </button>
+                                                        <button class="btn-delete-address" type="button">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="address-content">
+                                                    <p>456 Business Ave<br>Suite 200<br>San Francisco, CA 94107<br>United States</p>
+                                                </div>
+                                                <button class="btn btn-sm btn-make-default" type="button">Make default</button>
+                                            </div>
+                                        </div><!-- End Address Item -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Notifications Tab -->
+                            <div class="tab-pane fade" id="notifications" role="tabpanel" aria-labelledby="notifications-tab">
+                                <div class="tab-header">
+                                    <h2>Notification Settings</h2>
+                                </div>
+                                <div class="notifications-settings">
+                                    <div class="notification-group">
+                                        <h5>Order Updates</h5>
+                                        <div class="notification-item">
+                                            <div class="notification-info">
+                                                <div class="notification-title">Order status changes</div>
+                                                <div class="notification-desc">Receive notifications when your order status changes</div>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="orderStatusNotif" checked="">
+                                                <label class="form-check-label" for="orderStatusNotif"></label>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <div class="notification-info">
+                                                <div class="notification-title">Shipping updates</div>
+                                                <div class="notification-desc">Receive notifications about shipping and delivery</div>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="shippingNotif" checked="">
+                                                <label class="form-check-label" for="shippingNotif"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="notification-group">
+                                        <h5>Account Activity</h5>
+                                        <div class="notification-item">
+                                            <div class="notification-info">
+                                                <div class="notification-title">Security alerts</div>
+                                                <div class="notification-desc">Receive notifications about security-related activity</div>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="securityNotif" checked="">
+                                                <label class="form-check-label" for="securityNotif"></label>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <div class="notification-info">
+                                                <div class="notification-title">Password changes</div>
+                                                <div class="notification-desc">Receive notifications when your password is changed</div>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="passwordNotif" checked="">
+                                                <label class="form-check-label" for="passwordNotif"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="notification-group">
+                                        <h5>Marketing</h5>
+                                        <div class="notification-item">
+                                            <div class="notification-info">
+                                                <div class="notification-title">Promotions and deals</div>
+                                                <div class="notification-desc">Receive notifications about special offers and discounts</div>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="promoNotif">
+                                                <label class="form-check-label" for="promoNotif"></label>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <div class="notification-info">
+                                                <div class="notification-title">New product arrivals</div>
+                                                <div class="notification-desc">Receive notifications when new products are added</div>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="newProductNotif">
+                                                <label class="form-check-label" for="newProductNotif"></label>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <div class="notification-info">
+                                                <div class="notification-title">Personalized recommendations</div>
+                                                <div class="notification-desc">Receive notifications with product recommendations based on your interests</div>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="recommendNotif" checked="">
+                                                <label class="form-check-label" for="recommendNotif"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="notification-actions">
+                                        <button type="button" class="btn btn-save">Save Preferences</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section><!-- /Account Section -->
+
+    </main>
+
+    
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/drift-zoom@1.4.0/dist/Drift.min.js"></script>
+
+    <!-- Main JS File -->
+    <script>
+        // Set current year in copyright
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Initialize tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+          });
+
+          // Filter tag removal
+          document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+              this.remove();
+            });
+          });
+
+          // Back to top button
+          const backToTopButton = document.querySelector('.back-to-top');
+
+          window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+              backToTopButton.classList.add('show');
+            } else {
+              backToTopButton.classList.remove('show');
+            }
+          });
+
+          backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+
+          // Product hover effect
+          const productCards = document.querySelectorAll('.product-card');
+          productCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+              card.style.transform = 'translateY(-10px)';
+              card.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+              card.style.transform = 'translateY(0)';
+              card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+            });
+          });
+
+          // Mobile navigation toggle
+          const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+          const navMenu = document.getElementById('navmenu');
+
+          if (mobileNavToggle && navMenu) {
+            mobileNavToggle.addEventListener('click', () => {
+              navMenu.classList.toggle('active');
+            });
+          }
+        });
+
+        // Currency switcher
+        document.addEventListener('DOMContentLoaded', function() {
+          const currencySwitcher = document.querySelector('.top-bar-item.dropdown .dropdown-menu');
+          if (currencySwitcher) {
+            currencySwitcher.querySelectorAll('.dropdown-item').forEach(item => {
+              item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const currency = this.textContent.trim();
+                document.querySelector('.top-bar-item.dropdown .dropdown-toggle i').nextSibling.textContent = currency;
+              });
+            });
+          }
+        });
+    </script>
+
+</body>
+
+</html>

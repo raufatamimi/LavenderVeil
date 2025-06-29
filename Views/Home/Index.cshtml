@@ -1,0 +1,630 @@
+﻿@model IEnumerable<Lavender_Veil.Models.Product>
+<!DOCTYPE html>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>LavenderVeil</title><!-- Updated Title for Lavender Veil Branding -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="/Images/Lavender_Veil_logo-Photoroom.png" rel="icon"><!-- Updated Favicon for Lavender Veil Branding -->
+    <link href="/Images/Lavender_Veil_logo-Photoroom.png" rel="apple-touch-icon"><!-- Updated Apple Touch Icon for Lavender Veil Branding -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/drift-zoom/drift-basic.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/rtl.css" rel="stylesheet">
+    <style>
+        .btn-lavender {
+            background-color: #a07cc5;
+            color: white;
+            border-radius: 10px;
+        }
+
+            .btn-lavender:hover {
+                background-color: #8a6db6;
+            }
+        .search-bar {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .search-input {
+            border: 2px solid #c8a2c8;
+            border-radius: 25px 0 0 25px;
+            padding: 10px 15px;
+            background-color: #fdfdff;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(123, 104, 238, 0.1);
+        }
+
+            .search-input:focus {
+                border-color: #9370db;
+                box-shadow: 0 0 8px rgba(147, 112, 219, 0.3);
+            }
+
+        .btn-search {
+            border: 2px solid #c8a2c8;
+            background-color: #c8a2c8;
+            color: white;
+            border-radius: 0 25px 25px 0;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+            .btn-search:hover {
+                background-color: #b57edc;
+                color: #fff;
+            }
+    </style>
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header position-relative">
+        @* <!-- Top Bar --> *@
+        @* <div class="top-bar py-2 d-none d-lg-block"> *@
+        @*     <div class="container-fluid container-xl"> *@
+        @*         <div class="row align-items-center"> *@
+        @*             <div class="col-lg-6"> *@
+        @*                 <div class="d-flex align-items-center"> *@
+        @*                     <div class="top-bar-item me-4"> *@
+        @*                         <i class="bi bi-telephone-fill me-2"></i> *@
+        @*                         <span data-translate-key="customer_support">Customer Support: </span> *@
+        @*                         <a href="tel:+962788314974">+962 78 831 4974</a> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item"> *@
+        @*                         <i class="bi bi-envelope-fill me-2"></i> *@
+        @*                         <a href="mailto:lavenderveilzuj@gmail.com">lavenderveilzuj@gmail.com</a> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <div class="col-lg-6"> *@
+        @*                 <div class="d-flex justify-content-end"> *@
+        @*                     <div class="top-bar-item me-4"> *@
+        @*                         <a href="track-order.html"> *@
+        @*                             <i class="bi bi-truck me-2"></i><span data-translate-key="track_order">Track Order</span> *@
+        @*                         </a> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item dropdown me-4"> *@
+        @*                         <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"> *@
+        @*                             <i class="bi bi-translate me-2"></i>English *@
+        @*                         </a> *@
+        @*                         <ul class="dropdown-menu me-4"> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="ar">العربية</a></li> *@
+        @*                             <li><a class="dropdown-item active" href="#" data-lang="en"><i class="bi bi-check2 me-2 selected-icon"></i>English</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="es">Español</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li> *@
+        @*                         </ul> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item dropdown"> *@
+        @*                         <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"> *@
+        @*                             <i class="bi bi-currency-dollar me-2"></i>USD *@
+        @*                         </a> *@
+        @*                         <ul class="dropdown-menu"> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="JOR"><i class="bi bi-check2 me-2 selected-icon"></i>JOR</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="USD">USD</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="EUR">EUR</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="GBP">GBP</a></li> *@
+        @*                         </ul> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+        @*         </div> *@
+        @*     </div> *@
+        @* </div> *@
+
+        <!-- Main Header -->
+        <div class="main-header">
+            <div class="container-fluid container-xl">
+                <div class="d-flex py-3 align-items-center justify-content-between">
+
+                    <!-- Logo -->
+                    <a href="index.html">
+                        <img src="/Images/LavenderVeil_FullLogo.svg" style="width: 250px; height: auto;" alt="Lavender Veil Logo">
+                    </a>
+
+                    <form asp-controller="Products" asp-action="Search" method="get" class="search-bar d-flex align-items-center">
+                        <div class="input-group">
+                            <input type="search" name="query" class="form-control search-input" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-search" type="submit">
+                                🔍
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Actions -->
+                    <div class="header-actions d-flex align-items-center justify-content-end">
+
+                        <!-- Mobile Search Toggle -->
+                        <button class="header-action-btn mobile-search-toggle d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-expanded="false" aria-controls="mobileSearch">
+                            <i class="bi bi-search"></i>
+                        </button>
+
+                        <!-- Account -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="dropdown account-dropdown">
+                                <button class="header-action-btn" data-bs-toggle="dropdown">
+                                    <i class="bi bi-person"></i>
+                                    <span class="action-text d-none d-md-inline-block" data-translate-key="account">Account</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-header">
+                                        <h6>Welcome to <span class="sitename">LavenderVeil</span></h6>
+                                        <p class="mb-0">Access account &amp; manage orders</p>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="Profile" asp-action="Index">
+                                            <i class="bi bi-person-circle me-2"></i>
+                                            <span>My Profile</span>
+                                        </a>
+
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="Profile" asp-action="Orders">
+                                            <i class="bi bi-bag-check me-2"></i>
+                                            <span>My Orders</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="WishlistItems" asp-action="Index">
+                                            <i class="bi bi-heart me-2"></i>
+                                            <span>My Wishlist</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-footer">
+                                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline w-100">
+                                            <button type="submit" class="btn btn-outline-secondary w-100">Logout</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <a asp-controller="Account" asp-action="Login" class="btn btn-lavender login-button">
+                                <i class="bi bi-box-arrow-in-right me-1"></i>
+                                <span class="action-text">Login</span>
+                            </a>
+                        }
+
+                        <!-- Wishlist -->
+                        <a asp-controller="WishlistItems" asp-action="Index" class="header-action-btn d-none d-md-flex">
+                            <i class="bi bi-heart"></i>
+                            <span class="action-text d-none d-md-inline-block" data-translate-key="wishlist">Wishlist</span>
+                            
+                        </a>
+
+
+                        <!-- Cart -->
+                        <a asp-controller="CartItems" asp-action="Index" class="header-action-btn d-none d-md-flex">
+                            <i class="bi bi-cart3"></i>
+                            <span class="action-text d-none d-md-inline-block" data-translate-key="cart">Cart</span>
+                            
+                        </a>
+
+
+                        <!-- Mobile Navigation Toggle -->
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list me-0"></i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="header-nav">
+            <div class="container-fluid container-xl position-relative">
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index" class="active"><span data-translate-key="nav_home">Home</span></a></li>
+                        <li><a asp-controller="Home" asp-action="About"><span data-translate-key="nav_about">About</span></a></li>
+                        
+                        <li><a asp-controller="Products" asp-action="Shop"><span data-translate-key="nav_product_details">Products</span></a></li>
+                        <li><a asp-controller="CartItems" asp-action="Index"><span data-translate-key="nav_cart">Cart</span></a></li>
+                        <li><a asp-controller="Profile" asp-action="Orders"><span data-translate-key="nav_checkout">My Orders</span></asp-controller></a></li>
+
+
+                        <!-- End Products Mega Menu 1 -->
+                        <!-- Products Mega Menu 1 =========================================================================== 1 -->
+                        <!-- Products Menu -->
+                        <li class="products-megamenu-2">
+                            <a href="#"><span>Menu</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+
+                            <!-- Products Menu Mobile View -->
+                            <ul class="mobile-megamenu">
+
+                                <li class="dropdown">
+                                    <a href="#"><span>Clothing</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                    <ul>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="1">Skirts</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="3">Hijabs</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="4">Swimwear</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="5">Abayas</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="6">Tops</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="7">Outwear Sets</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="9">Dresses</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="10">Thobes</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="11">Prayer set</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#"><span>Accessories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                    <ul>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="2">Accessories</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="8">Hijab's Accessories</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul><!-- End Products Menu Mobile View -->
+                            <!-- Products Menu Desktop View -->
+                            <div class="desktop-megamenu">
+
+                                <!-- Tabs Content -->
+                                <div class="megamenu-content tab-content">
+
+                                    <!-- Women Tab -->
+                                    <div class="tab-pane fade show active" role="tabpanel">
+                                        <div class="category-layout">
+                                            <div class="categories-section">
+                                                <div class="category-headers">
+                                                    <h4>Clothing</h4>
+                                                    <h4>Accessories</h4>
+                                                </div>
+
+                                                <div class="category-links">
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="1">Skirts</a>
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="2">Accessories</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="3">Hijabs</a>
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="8">Hijab's Accessories</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="4">Swimwear</a>
+                                                        <a asp-controller="Products" asp-action="Shop" >View all</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="5">Abayas</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="6">Tops</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="7">Outwear Sets</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="9">Dresses</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="10">Thobes</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="11">Prayer set</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="Shop" >View all</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="featured-section">
+                                                <div class="featured-image">
+                                                    <img src="/Images/product/Dresses/photo_5877542043566328620_y.jpg" alt="Featured Dresses Collection" class="img-fluid" style="height: 85%; width: auto;">
+                                                    <div class="featured-content">
+                                                        <h3>New<br>Dresses<br>Collection</h3>
+                                                        <a asp-controller="Products" asp-action="Shop" class="btn-shop">Shop now</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div><!-- End Products Menu Desktop View -->
+
+                        </li><!-- End Products Menu -->
+
+                        <li><a asp-controller="Contact" asp-action="Contact"><span data-translate-key="nav_contact">Contact</span></a></li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Announcement Bar -->
+        <div class="announcement-bar py-2">
+            <div class="container-fluid container-xl">
+                <div class="announcement-slider swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                            "delay": 5000
+                          },
+                          "slidesPerView": 1,
+                          "effect": "slide",
+                          "direction": "vertical"
+                        }
+                    </script>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">🚚 Free shipping on orders over $50</div>
+                        <div class="swiper-slide">💰 30 days money back guarantee</div>
+                        <div class="swiper-slide">🎁 20% off on your first order - Use code: FIRST20</div>
+                        <div class="swiper-slide">⚡ Flash Sale! Up to 70% off on selected items</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Form -->
+        <div class="collapse" id="mobileSearch">
+            <div class="container">
+                <form class="search-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for products...">
+                        <button class="btn search-btn" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section class="ecommerce-hero-2 hero section" id="hero">
+            <div class="container">
+                <div class="hero-slider swiper init-swiper" data-aos="fade-up">
+                    <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 800,
+                          "autoplay": {
+                            "delay": 5000
+                          },
+                          "effect": "fade",
+                          "fadeEffect": {
+                            "crossFade": true
+                          },
+                          "navigation": {
+                            "nextEl": ".swiper-button-next",
+                            "prevEl": ".swiper-button-prev"
+                          }
+                        }
+                    </script>
+                    <div class="swiper-wrapper">
+                        <!-- New Collection Slide -->
+                        <div class="swiper-slide slide-new">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 content-col" data-aos="fade-right" data-aos-delay="100">
+                                    <div class="slide-content">
+                                        <span class="slide-badge">New Arrivals</span>
+                                        <h1>Discover Our <span>Latest</span> Collection</h1>
+                                        <p>Explore our newest styles and trends. Each piece is carefully selected to bring you the latest in fashion, quality, and comfort. Refresh your wardrobe today!</p>
+                                        <div class="slide-cta">
+                                            <a asp-controller="Products" asp-action="Shop" class="btn btn-shop">Shop New Arrivals <i class="bi bi-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 image-col" data-aos="fade-left" data-aos-delay="200">
+                                    <div class="product-showcase">
+                                        <div class="product-grid">
+                                            <!-- سيتم استبدال العناصر التالية بعرض ديناميكي من قاعدة البيانات -->
+                                            @foreach (var item in Model.Take(4))
+                                            {
+                                                <div class="product-item" data-aos="fade-up">
+                                                    <div class="product-image position-relative">
+                                                        <a asp-controller="Products" asp-action="Details" asp-route-productId="@item.ProductId">
+                                                            <img src="@item.ImageUrl" alt="@item.Name" />
+                                                        </a>
+                                                        <div class="overlay-buttons position-absolute top-0 end-0 m-2 d-flex gap-1">
+                                                            <form asp-controller="CartItems" asp-action="AddToCart" asp-route-productId="@item.ProductId" method="post" style="display:inline;">
+                                                                <button type="submit" class="btn" title="Add to Cart">
+                                                                    <i class="bi bi-cart-plus"></i>
+                                                                </button>
+                                                            </form>
+
+                                                            <a asp-controller="WishlistItems" asp-action="AddToWishlist" asp-route-productId="@item.ProductId" class="btn btn-light border">
+                                                                <i class="bi bi-heart"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-info text-center mt-2">
+                                                        <h4 class="product-title">@item.Name</h4>
+                                                        <span class="price">@item.Price JD</span>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slides الأخرى تبقى كما هي أو يتم تعديلها لاحقًا -->
+
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </section>
+        <!-- باقي الصفحة (promo-cards, etc) يتم تعديلها بنفس الطريقة لاحقًا -->
+    <!-- /Promo Cards Section -->
+        <!-- Category Cards Section -->
+       
+
+    <!-- Hero Section -->
+        
+<main class="main">
+
+    <!-- Hero Section -->
+    <section class="ecommerce-hero-2 hero section" id="hero">
+        <div class="container">
+            <div class="hero-slider swiper init-swiper" data-aos="fade-up">
+                <script type="application/json" class="swiper-config">
+                    {
+                      "loop": true,
+                      "speed": 800,
+                      "autoplay": { "delay": 5000 },
+                      "effect": "fade",
+                      "fadeEffect": { "crossFade": true },
+                      "navigation": { "nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev" }
+                    }
+                </script>
+                <div class="swiper-wrapper">
+                    @foreach (var item in Model.Take(4))
+                    {
+                        <div class="swiper-slide slide-new">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 content-col" data-aos="fade-right">
+                                    <div class="slide-content">
+                                        <span class="slide-badge">New</span>
+                                        <h1>@item.Name</h1>
+                                        <p>Explore our latest fashion picks. Carefully selected for quality and elegance.</p>
+                                        <div class="slide-cta">
+                                            <a asp-controller="Products" asp-action="Details" asp-route-productId="@item.ProductId" class="btn btn-shop">
+                                                View Product <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 image-col" data-aos="fade-left">
+                                    <div class="product-showcase position-relative">
+                                        <div class="product-image">
+                                            <img src="@item.ImageUrl" alt="@item.Name" class="img-fluid">
+                                            <div class="position-absolute top-0 end-0 m-3 d-flex gap-2">
+                                                        <form asp-controller="CartItems" asp-action="AddToCart" asp-route-productId="@item.ProductId" method="post" style="display:inline;">
+                                                            <button type="submit" class="btn" title="Add to Cart">
+                                                                <i class="bi bi-cart-plus"></i>
+                                                            </button>
+                                                        </form>
+
+                                                <a asp-controller="WishlistItems" asp-action="AddToWishlist" asp-route-productId="@item.ProductId" class="btn btn-sm btn-outline-danger" title="Wishlist">
+                                                    <i class="bi bi-heart"></i>
+                                                </a>
+                                                <a asp-controller="Products" asp-action="Details" asp-route-productId="@item.ProductId" class="btn btn-sm btn-outline-primary" title="Details">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers Section -->
+    <section id="best-sellers" class="best-sellers section">
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Best Sellers</h2>
+            <p>Shop our most-loved products—curated for quality, style, and unbeatable value.</p>
+        </div>
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row g-4">
+                @foreach (var item in Model.Take(8))
+                {
+                    <div class="col-6 col-lg-3">
+                        <div class="product-card" data-aos="zoom-in">
+                            <div class="product-image">
+                                <img src="@item.ImageUrl" class="main-image img-fluid" alt="@item.Name">
+                                <img src="@item.ImageUrl" class="hover-image img-fluid" alt="@item.Name Variant">
+                                <div class="product-overlay">
+                                    <div class="product-actions">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-productId="@item.ProductId" class="action-btn" title="Quick View">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                                <form asp-controller="CartItems" asp-action="AddToCart" asp-route-productId="@item.ProductId" method="post" style="display:inline;">
+                                                    <button type="submit" class="btn" title="Add to Cart">
+                                                        <i class="bi bi-cart-plus"></i>
+                                                    </button>
+                                                </form>
+
+                                        <a asp-controller="WishlistItems" asp-action="AddToWishlist" asp-route-productId="@item.ProductId" class="action-btn" title="Add to Wishlist">
+                                            <i class="bi bi-heart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-details">
+                                <div class="product-category">@item.Category?.Name</div>
+                                <h4 class="product-title">
+                                    <a asp-controller="Products" asp-action="Details" asp-route-productId="@item.ProductId">@item.Name</a>
+                                </h4>
+                                <div class="product-meta">
+                                    <div class="product-price">$@item.Price</div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i> 4.8 <span>(42)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+</main>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/php-email-form/validate.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/Imagesloaded/Imagesloaded.pkgd.min.js"></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/drift-zoom/Drift.min.js"></script>
+    <script src="/vendor/purecounter/purecounter_vanilla.js"></script>
+
+    <!-- Main JS File -->
+    <script src="/js/translations.js"></script>
+    <script src="/js/currency-switcher.js"></script>
+    <script src="/js/main.js"></script>
+   
+
+
+</body>
+
+</html>

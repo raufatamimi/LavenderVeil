@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Lavender_Veil.Models.Customer>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<Lavender_Veil.Models.Customer> UserManager
+
+@{
+    ViewData["Title"] = "Manage Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4 text-lavender text-center">@ViewData["Title"]</h2>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<table class="table table-bordered table-hover text-center">
+    <thead class="table-light">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+           
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+               
+                <td>
+                    @if (await UserManager.IsInRoleAsync(user, "Admin"))
+                    {
+                        <span class="badge bg-danger">Admin</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Customer</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Admin" asp-action="Dashboard" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left"></i> Back
+</a>

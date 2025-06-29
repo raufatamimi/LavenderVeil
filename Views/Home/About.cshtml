@@ -1,0 +1,929 @@
+﻿<!DOCTYPE html>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>LavenderVeil - About</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="/Images/Lavender_Veil_logo-Photoroom.png" rel="icon">
+    <link href="/Images/Lavender_Veil_logo-Photoroom.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin,
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/drift-zoom/drift-basic.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/rtl.css" rel="stylesheet">
+    <style>
+        .btn-lavender {
+            background-color: #a07cc5;
+            color: white;
+            border-radius: 10px;
+        }
+
+            .btn-lavender:hover {
+                background-color: #8a6db6;
+            }
+        .search-bar {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .search-input {
+            border: 2px solid #c8a2c8;
+            border-radius: 25px 0 0 25px;
+            padding: 10px 15px;
+            background-color: #fdfdff;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(123, 104, 238, 0.1);
+        }
+
+            .search-input:focus {
+                border-color: #9370db;
+                box-shadow: 0 0 8px rgba(147, 112, 219, 0.3);
+            }
+
+        .btn-search {
+            border: 2px solid #c8a2c8;
+            background-color: #c8a2c8;
+            color: white;
+            border-radius: 0 25px 25px 0;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+            .btn-search:hover {
+                background-color: #b57edc;
+                color: #fff;
+            }
+    </style>
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header position-relative">
+        @* <!-- Top Bar --> *@
+        @* <div class="top-bar py-2 d-none d-lg-block"> *@
+        @*     <div class="container-fluid container-xl"> *@
+        @*         <div class="row align-items-center"> *@
+        @*             <div class="col-lg-6"> *@
+        @*                 <div class="d-flex align-items-center"> *@
+        @*                     <div class="top-bar-item me-4"> *@
+        @*                         <i class="bi bi-telephone-fill me-2"></i> *@
+        @*                         <span data-translate-key="customer_support">Customer Support: </span> *@
+        @*                         <a href="tel:+962788314974">+962 78 831 4974</a> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item"> *@
+        @*                         <i class="bi bi-envelope-fill me-2"></i> *@
+        @*                         <a href="mailto:lavenderveilzuj@gmail.com">lavenderveilzuj@gmail.com</a> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <div class="col-lg-6"> *@
+        @*                 <div class="d-flex justify-content-end"> *@
+        @*                     <div class="top-bar-item me-4"> *@
+        @*                         <a href="track-order.html"> *@
+        @*                             <i class="bi bi-truck me-2"></i><span data-translate-key="track_order">Track Order</span> *@
+        @*                         </a> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item dropdown me-4"> *@
+        @*                         <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"> *@
+        @*                             <i class="bi bi-translate me-2"></i>English *@
+        @*                         </a> *@
+        @*                         <ul class="dropdown-menu me-4"> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="ar">العربية</a></li> *@
+        @*                             <li><a class="dropdown-item active" href="#" data-lang="en"><i class="bi bi-check2 me-2 selected-icon"></i>English</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="es">Español</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li> *@
+        @*                         </ul> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item dropdown"> *@
+        @*                         <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"> *@
+        @*                             <i class="bi bi-currency-dollar me-2"></i>USD *@
+        @*                         </a> *@
+        @*                         <ul class="dropdown-menu"> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="JOR"><i class="bi bi-check2 me-2 selected-icon"></i>JOR</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="USD">USD</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="EUR">EUR</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="GBP">GBP</a></li> *@
+        @*                         </ul> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+        @*         </div> *@
+        @*     </div> *@
+        @* </div> *@
+
+        <!-- Main Header -->
+        <div class="main-header">
+            <div class="container-fluid container-xl">
+                <div class="d-flex py-3 align-items-center justify-content-between">
+
+                    <!-- Logo -->
+                    <a href="index.html">
+                        <img src="/Images/LavenderVeil_FullLogo.svg" style="width: 250px; height: auto;" alt="Lavender Veil Logo">
+                    </a>
+
+                    <form asp-controller="Products" asp-action="Search" method="get" class="search-bar d-flex align-items-center">
+                        <div class="input-group">
+                            <input type="search" name="query" class="form-control search-input" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-search" type="submit">
+                                🔍
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Actions -->
+                    <div class="header-actions d-flex align-items-center justify-content-end">
+
+                        <!-- Mobile Search Toggle -->
+                        <button class="header-action-btn mobile-search-toggle d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-expanded="false" aria-controls="mobileSearch">
+                            <i class="bi bi-search"></i>
+                        </button>
+
+                        <!-- Account -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="dropdown account-dropdown">
+                                <button class="header-action-btn" data-bs-toggle="dropdown">
+                                    <i class="bi bi-person"></i>
+                                    <span class="action-text d-none d-md-inline-block" data-translate-key="account">Account</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-header">
+                                        <h6>Welcome to <span class="sitename">LavenderVeil</span></h6>
+                                        <p class="mb-0">Access account &amp; manage orders</p>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="Profile" asp-action="Index">
+                                            <i class="bi bi-person-circle me-2"></i>
+                                            <span>My Profile</span>
+                                        </a>
+
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="Profile" asp-action="Orders">
+                                            <i class="bi bi-bag-check me-2"></i>
+                                            <span>My Orders</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="WishlistItems" asp-action="Index">
+                                            <i class="bi bi-heart me-2"></i>
+                                            <span>My Wishlist</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-footer">
+                                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline w-100">
+                                            <button type="submit" class="btn btn-outline-secondary w-100">Logout</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <a asp-controller="Account" asp-action="Login" class="btn btn-lavender login-button">
+                                <i class="bi bi-box-arrow-in-right me-1"></i>
+                                <span class="action-text">Login</span>
+                            </a>
+                        }
+
+                        <!-- Wishlist -->
+                        <a asp-controller="WishlistItems" asp-action="Index" class="header-action-btn d-none d-md-flex">
+                            <i class="bi bi-heart"></i>
+                            <span class="action-text d-none d-md-inline-block" data-translate-key="wishlist">Wishlist</span>
+                            
+                        </a>
+
+
+                        <!-- Cart -->
+                        <a asp-controller="CartItems" asp-action="Index" class="header-action-btn d-none d-md-flex">
+                            <i class="bi bi-cart3"></i>
+                            <span class="action-text d-none d-md-inline-block" data-translate-key="cart">Cart</span>
+                            
+                        </a>
+
+
+                        <!-- Mobile Navigation Toggle -->
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list me-0"></i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="header-nav">
+            <div class="container-fluid container-xl position-relative">
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index" class="active"><span data-translate-key="nav_home">Home</span></a></li>
+                        <li><a asp-controller="Home" asp-action="About"><span data-translate-key="nav_about">About</span></a></li>
+                        
+                        <li><a asp-controller="Products" asp-action="Shop"><span data-translate-key="nav_product_details">Products</span></a></li>
+                        <li><a asp-controller="CartItems" asp-action="Index"><span data-translate-key="nav_cart">Cart</span></a></li>
+                        <li><a asp-controller="Profile" asp-action="Orders"><span data-translate-key="nav_checkout">My Orders</span></asp-controller></a></li>
+
+
+                        <!-- End Products Mega Menu 1 -->
+                        <!-- Products Mega Menu 1 =========================================================================== 1 -->
+                        <!-- Products Menu -->
+                        <li class="products-megamenu-2">
+                            <a href="#"><span>Menu</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+
+                            <!-- Products Menu Mobile View -->
+                            <ul class="mobile-megamenu">
+
+                                <li class="dropdown">
+                                    <a href="#"><span>Clothing</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                    <ul>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="1">Skirts</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="3">Hijabs</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="4">Swimwear</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="5">Abayas</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="6">Tops</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="7">Outwear Sets</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="9">Dresses</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="10">Thobes</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="11">Prayer set</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#"><span>Accessories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                    <ul>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="2">Accessories</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="8">Hijab's Accessories</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul><!-- End Products Menu Mobile View -->
+                            <!-- Products Menu Desktop View -->
+                            <div class="desktop-megamenu">
+
+                                <!-- Tabs Content -->
+                                <div class="megamenu-content tab-content">
+
+                                    <!-- Women Tab -->
+                                    <div class="tab-pane fade show active" role="tabpanel">
+                                        <div class="category-layout">
+                                            <div class="categories-section">
+                                                <div class="category-headers">
+                                                    <h4>Clothing</h4>
+                                                    <h4>Accessories</h4>
+                                                </div>
+
+                                                <div class="category-links">
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="1">Skirts</a>
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="2">Accessories</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="3">Hijabs</a>
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="8">Hijab's Accessories</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="4">Swimwear</a>
+                                                        <a asp-controller="Products" asp-action="Shop" >View all</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="5">Abayas</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="6">Tops</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="7">Outwear Sets</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="9">Dresses</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="10">Thobes</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="11">Prayer set</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="Shop" >View all</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="featured-section">
+                                                <div class="featured-image">
+                                                    <img src="/Images/product/Dresses/photo_5877542043566328620_y.jpg" alt="Featured Dresses Collection" class="img-fluid" style="height: 85%; width: auto;">
+                                                    <div class="featured-content">
+                                                        <h3>New<br>Dresses<br>Collection</h3>
+                                                        <a asp-controller="Products" asp-action="Shop" class="btn-shop">Shop now</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div><!-- End Products Menu Desktop View -->
+
+                        </li><!-- End Products Menu -->
+
+                        <li><a asp-controller="Contact" asp-action="Contact"><span data-translate-key="nav_contact">Contact</span></a></li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Announcement Bar -->
+        <div class="announcement-bar py-2">
+            <div class="container-fluid container-xl">
+                <div class="announcement-slider swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                            "delay": 5000
+                          },
+                          "slidesPerView": 1,
+                          "effect": "slide",
+                          "direction": "vertical"
+                        }
+                    </script>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">🚚 Free shipping on orders over $50</div>
+                        <div class="swiper-slide">💰 30 days money back guarantee</div>
+                        <div class="swiper-slide">🎁 20% off on your first order - Use code: FIRST20</div>
+                        <div class="swiper-slide">⚡ Flash Sale! Up to 70% off on selected items</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Form -->
+        <div class="collapse" id="mobileSearch">
+            <div class="container">
+                <form class="search-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for products...">
+                        <button class="btn search-btn" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </header>
+
+    <main id="main">
+
+        <!-- Page Title Section -->
+        <section id="page-title" class="page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>About Us</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-controller="Home"  asp-action="Index">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Page Title Section -->
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="container">
+
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="about-image">
+                            <img src="/Images/product/Abayas/photo_5877542043566328569_y.jpg" class="img-fluid" alt="About LavenderVeil">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1 content">
+                        <h2>Our Story</h2>
+                        <p class="fst-italic">
+                            LavenderVeil was born from a simple yet powerful vision: to create modest fashion that never compromises on style, quality, or ethical standards.
+                        </p>
+                        <p>
+                            Founded in 2020, our journey began when our founder, Fatima, struggled to find modest clothing that felt contemporary and fashion-forward. What started as a small collection designed for friends and family quickly blossomed into something much bigger as word spread about our unique designs.
+                        </p>
+                        <p>
+                            Today, LavenderVeil stands as a testament to the belief that modesty and modern style can beautifully coexist. We've grown from a small home-based operation to an international brand serving customers across the globe, all while staying true to our core values.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- /About Section -->
+        <!-- Values Section -->
+        <section id="values" class="values section light-background">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Our Values</h2>
+                    <p>The principles that guide everything we do at LavenderVeil</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                        <div class="value-box">
+                            <div class="icon"><i class="bi bi-gem"></i></div>
+                            <h3>Quality Craftsmanship</h3>
+                            <p>We believe in creating garments that stand the test of time, both in style and durability. Each piece is thoughtfully designed and meticulously crafted using premium materials.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                        <div class="value-box">
+                            <div class="icon"><i class="bi bi-heart"></i></div>
+                            <h3>Inclusive Fashion</h3>
+                            <p>We design for diverse women with different preferences, body types, and interpretations of modesty. Our goal is to make everyone feel represented and beautiful.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                        <div class="value-box">
+                            <div class="icon"><i class="bi bi-globe"></i></div>
+                            <h3>Ethical Production</h3>
+                            <p>We're committed to ethical manufacturing practices, fair wages, and reducing our environmental footprint through sustainable materials and processes.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                        <div class="value-box">
+                            <div class="icon"><i class="bi bi-lightbulb"></i></div>
+                            <h3>Continuous Innovation</h3>
+                            <p>We constantly push the boundaries of modest fashion, exploring new designs, fabrics, and techniques to bring fresh, exciting options to our customers.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- /Values Section -->
+        <!-- Team Section -->
+        <section id="team" class="team section">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Our Team</h2>
+                    <p>Meet the passionate individuals behind LavenderVeil</p>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="/Images/person/hanan.jpg" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Hanan Othman</h4>
+                                <span>Founder & Creative Director</span>
+                                <p>With over 15 years in fashion design, Hanan brings her vision and expertise to every collection.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="/Images/person/z.jpg" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Zainab Alkhatab</h4>
+                                <span>Head of Design</span>
+                                <p>Zainab's innovative approach to modest fashion has helped define our unique aesthetic.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="/Images/person/me.jpg" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Raufa Sultan</h4>
+                                <span>Operations Manager</span>
+                                <p>Raufa ensures our production processes are efficient, ethical, and environmentally responsible.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="/Images/person/Aya.jpg" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Aya Afaneh</h4>
+                                <span>Customer Experience</span>
+                                <p>Aya leads our efforts to provide exceptional service and support to our global community.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- /Team Section -->
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section light-background">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Testimonials</h2>
+                    <p>What our customers say about LavenderVeil</p>
+                </div>
+
+                <div class="testimonials-slider swiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    I've struggled for years to find modest clothing that doesn't look outdated. LavenderVeil's pieces are not only modest but also stylish and contemporary. The quality is exceptional!
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                                <div class="profile mt-auto">
+                                    <h3>Sarah J.</h3>
+                                    <h4>New York, USA</h4>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    The attention to detail in every garment is remarkable. I appreciate how LavenderVeil considers both style and functionality in their designs. Their customer service is also top-notch!
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                                <div class="profile mt-auto">
+                                    <img src="/Images/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                                    <h3>Amina K.</h3>
+                                    <h4>London, UK</h4>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    As someone who values both modesty and fashion, I've found my perfect match with LavenderVeil. Their pieces are versatile, comfortable, and make me feel confident in any setting.
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                                <div class="profile mt-auto">
+                                    <img src="/Images/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                                    <h3>Noor A.</h3>
+                                    <h4>Dubai, UAE</h4>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    I appreciate LavenderVeil's commitment to ethical production. It's rare to find a brand that prioritizes both style and sustainability. Their transparency about their manufacturing processes is refreshing.
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                                <div class="profile mt-auto">
+                                    <img src="/Images/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                                    <h3>Maya T.</h3>
+                                    <h4>Toronto, Canada</h4>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </section><!-- /Testimonials Section -->
+        <!-- FAQ Section -->
+        <section id="faq" class="faq section">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Common questions about LavenderVeil and our products</p>
+                </div>
+
+                <div class="faq-list">
+                    <ul>
+                        <li>
+                            <i class="bi bi-question-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">What makes LavenderVeil different from other modest fashion brands? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></a>
+                            <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                                <p>
+                                    LavenderVeil stands out through our commitment to contemporary design, premium quality, and ethical production. We believe modest fashion should never compromise on style or craftsmanship, and we work closely with our community to create pieces that truly meet their needs.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="bi bi-question-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">How do you ensure ethical production? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></a>
+                            <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                                <p>
+                                    We partner with carefully selected manufacturers who share our values. We regularly audit our production facilities to ensure fair wages, safe working conditions, and environmentally responsible practices. We're also transitioning to more sustainable materials across our collections.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="bi bi-question-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Do you ship internationally? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></a>
+                            <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                                <p>
+                                    Yes! We ship to over 50 countries worldwide. Shipping times and costs vary by location, but we offer free shipping on orders over $100. You can view specific shipping information for your country during checkout.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="bi bi-question-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">What is your return policy? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></a>
+                            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                                <p>
+                                    We offer a 30-day return policy for unworn items in original condition with tags attached. Returns are free for customers in the US, UK, and Canada. For other countries, return shipping costs are the customer's responsibility. Please visit our Returns page for complete details.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="bi bi-question-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">How can I care for my LavenderVeil garments? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></a>
+                            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                                <p>
+                                    Each item comes with specific care instructions on the label. Generally, we recommend gentle washing with similar colors, avoiding bleach, and air drying when possible to preserve the quality and longevity of your garments. For delicate items, hand washing or professional cleaning may be recommended.
+                                </p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </section><!-- /FAQ Section -->
+
+    </main>
+
+    <footer id="footer" class="footer light-background">
+        <div class="footer-main">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget footer-about">
+                            <a asp-controller="Home"  asp-action="Index" class="logo">
+                                <img src="/Images/LavenderVeil_FullLogo_light.svg" alt="Lavender Veil Logo">
+                            </a>
+                            <p>At Lavender Veil, we believe in effortless elegance. Our carefully curated collections blend timeless style with contemporary trends, offering premium quality pieces designed to elevate your everyday wardrobe.</p>
+
+                            <div class="social-links mt-4">
+                                <h5>Connect With Us</h5>
+                                <div class="social-icons">
+                                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                    <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                                    <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                                    <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-widget">
+                            <h4>Shop</h4>
+                            <ul class="footer-links">
+                                <li><a asp-controller="Products"  asp-action="Shop">New Arrivals</a></li>
+                                <li><a asp-controller="Products"  asp-action="Shop">Bestsellers</a></li>
+                                <li><a asp-controller="Products"  asp-action="Shop">Clothing</a></li>
+                                <li><a asp-controller="Products"  asp-action="Shop">Accessories</a></li>
+                                <li><a asp-controller="Products"  asp-action="Shop">Sale</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-widget">
+                            <h4>Support</h4>
+                            <ul class="footer-links">
+                                <li><a asp-controller="Home" asp-action="support">Help Center</a></li>
+                                <li><a asp-controller="Profile"  asp-action="Show">Order Status</a></li>
+                                <li><a asp-controller="Contact"  asp-action="Contact">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget">
+                            <h4>Contact Information</h4>
+                            <div class="footer-contact">
+                                <div class="contact-item">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span>Amman, Jordan</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-telephone"></i>
+                                    <span>+962 78 831 4974</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-envelope"></i>
+                                    <span>lavenderveilzuj@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-clock"></i>
+                                    <span>Monday-Thursday: 9am-6pm<br>Saturday: 10am-4pm<br>Friday: Closed</span>
+                                </div>
+                            </div>
+
+                            <div class="app-buttons mt-4">
+                                <a href="#" class="app-btn">
+                                    <i class="bi bi-apple"></i>
+                                    <span>App Store</span>
+                                </a>
+                                <a href="#" class="app-btn">
+                                    <i class="bi bi-google-play"></i>
+                                    <span>Google Play</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row gy-3 align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="col-md-6 copyright">
+                            &copy; <span id="copyright-year">2025</span> <strong><span>LavenderVeil</span></strong>. All Rights Reserved
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="d-flex flex-wrap justify-content-lg-end justify-content-center align-items-center gap-4">
+                            <div class="payment-methods">
+                                <div class="payment-icons">
+                                    <i class="bi bi-credit-card" aria-label="Credit Card"></i>
+                                    <i class="bi bi-paypal" aria-label="PayPal"></i>
+                                    @* <i class="bi bi-apple" aria-label="Apple Pay"></i>  *@
+                                    @* <i class="bi bi-google" aria-label="Google Pay"></i> *@
+                                    @* <i class="bi bi-shop" aria-label="Shop Pay"></i> *@
+                                    <i class="bi bi-cash" aria-label="Cash on Delivery"></i>
+                                </div>
+                            </div>
+
+                            <div class="legal-links">
+                                <a asp-controller="Home"  asp-action="Privacy">Privacy Policy</a>
+                                <a asp-controller="Home" asp-action="tos">Terms of Service</a>
+                                <a asp-controller="Home" asp-action="faq">Faq</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/drift-zoom@1.4.0/dist/Drift.min.js"></script>
+
+    <!-- Main JS File -->
+    <script>
+        // Set current year in copyright
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Initialize tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+          });
+
+          // Filter tag removal
+          document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+              this.remove();
+            });
+          });
+
+          // Back to top button
+          const backToTopButton = document.querySelector('.back-to-top');
+
+          window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+              backToTopButton.classList.add('show');
+            } else {
+              backToTopButton.classList.remove('show');
+            }
+          });
+
+          backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+
+          // Product hover effect
+          const productCards = document.querySelectorAll('.product-card');
+          productCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+              card.style.transform = 'translateY(-10px)';
+              card.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+              card.style.transform = 'translateY(0)';
+              card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+            });
+          });
+
+          // Mobile navigation toggle
+          const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+          const navMenu = document.getElementById('navmenu');
+
+          if (mobileNavToggle && navMenu) {
+            mobileNavToggle.addEventListener('click', () => {
+              navMenu.classList.toggle('active');
+            });
+          }
+        });
+
+        // Currency switcher
+        document.addEventListener('DOMContentLoaded', function() {
+          const currencySwitcher = document.querySelector('.top-bar-item.dropdown .dropdown-menu');
+          if (currencySwitcher) {
+            currencySwitcher.querySelectorAll('.dropdown-item').forEach(item => {
+              item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const currency = this.textContent.trim();
+                document.querySelector('.top-bar-item.dropdown .dropdown-toggle i').nextSibling.textContent = currency;
+              });
+            });
+          }
+        });
+    </script>
+
+</body>
+
+</html>

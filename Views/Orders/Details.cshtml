@@ -1,0 +1,139 @@
+﻿@model Lavender_Veil.Models.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<!-- Bootstrap Icons CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+<style>
+    body {
+        background: linear-gradient(to right, #f9f3fb, #ece2f4);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .order-details-card {
+        background-color: #ffffff;
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(128, 0, 128, 0.08);
+        margin: 50px auto;
+        max-width: 850px;
+    }
+
+    .order-header {
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #7f57b3;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .order-info p {
+        font-size: 1rem;
+        color: #5c476d;
+        margin: 5px 0;
+    }
+
+    .status-badge {
+        background-color: #e7d7f7;
+        color: #6c3fb3;
+        padding: 6px 14px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .ordered-items-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #6b479f;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .product-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 15px;
+        border-radius: 12px;
+        background-color: #f9f4fe;
+        margin-bottom: 15px;
+        transition: transform 0.2s ease;
+    }
+
+        .product-item:hover {
+            transform: scale(1.01);
+        }
+
+    .product-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        object-fit: cover;
+        border: 2px solid #e0cffe;
+    }
+
+    .product-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #5d3a8a;
+        margin-bottom: 4px;
+    }
+
+    .product-meta {
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .back-btn {
+        display: inline-block;
+        margin: 30px auto 0;
+        text-align: center;
+    }
+
+    .btn-outline-secondary {
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-weight: 500;
+    }
+</style>
+
+<div class="container">
+    <div class="order-details-card">
+        <div class="order-header">
+            <i class="bi bi-box-seam-fill me-2"></i> Order #@Model.OrderId
+        </div>
+
+        <div class="order-info">
+            <p><i class="bi bi-calendar-event me-1"></i> <strong>Date:</strong> @Model.OrderDate.ToString("dd MMM yyyy")</p>
+            <p><i class="bi bi-hourglass-split me-1"></i> <strong>Status:</strong> <span class="status-badge">@Model.Status</span></p>
+            <p><i class="bi bi-currency-dollar me-1"></i> <strong>Total:</strong> @Model.TotalAmount</p>
+            <p><i class="bi bi-person-circle me-1"></i> <strong>Customer:</strong> @Model.Customer?.Name - @Model.Customer?.Email</p>
+        </div>
+
+        <div class="ordered-items-title">🛍️ Ordered Items</div>
+
+        @foreach (var item in Model.OrderItems)
+        {
+            <div class="product-item">
+                <img src="@item.Product.ImageUrl" class="product-img" alt="@item.Product.Name" />
+                <div>
+                    <div class="product-name">@item.Product.Name</div>
+                    <div class="product-meta">
+                        Quantity: @item.Quantity<br />
+                        Price: @item.Product.Price
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="text-center back-btn">
+        <a asp-controller="Profile" asp-action="Orders" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Back to My Orders
+        </a>
+    </div>
+</div>

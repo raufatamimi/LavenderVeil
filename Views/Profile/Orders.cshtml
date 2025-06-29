@@ -1,0 +1,222 @@
+﻿@model List<Lavender_Veil.Models.Order>
+
+@{
+    ViewData["Title"] = "My Orders";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+<style>
+    body {
+        background: #f9f7fc;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px 0;
+    }
+
+    h2.text-lavender {
+        color: #7b5fc3;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2.2rem;
+    }
+
+    .order-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(123, 104, 238, 0.12);
+        padding: 30px 30px 25px 30px;
+        margin: 0 auto 35px auto;
+        max-width: 720px;
+        transition: transform 0.3s ease;
+    }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(123, 104, 238, 0.25);
+        }
+
+    .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        color: #6e4c9e;
+        font-size: 1.15rem;
+        margin-bottom: 15px;
+    }
+
+    .order-status {
+        padding: 6px 14px;
+        border-radius: 12px;
+        background-color: #ebe3ff;
+        color: #6249b3;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        box-shadow: 0 1px 4px rgba(98, 73, 179, 0.25);
+    }
+
+    .order-date {
+        font-size: 0.9rem;
+        color: #a394be;
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    .order-total {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #5c3a8a;
+        margin-bottom: 20px;
+    }
+
+    .product-item {
+        display: flex;
+        gap: 18px;
+        padding: 15px 0;
+        border-top: 1px solid #eee;
+        align-items: center;
+    }
+
+    .product-img {
+        width: 90px;
+        height: 90px;
+        border-radius: 15px;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(123, 104, 238, 0.1);
+        flex-shrink: 0;
+    }
+
+    .product-details {
+        font-size: 0.95rem;
+        color: #4a3d7a;
+    }
+
+        .product-details strong {
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+    .btn-lavender-outline, .btn-lavender-outline:hover {
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 6px 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-lavender-outline {
+        color: #7b5fc3;
+        border: 2px solid #7b5fc3;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+        .btn-lavender-outline:hover {
+            background-color: #7b5fc3;
+            color: white;
+            box-shadow: 0 4px 10px rgba(123, 104, 238, 0.3);
+        }
+
+    .btn-danger-outline, .btn-danger-outline:hover {
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 6px 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-danger-outline {
+        color: #d9534f;
+        border: 2px solid #d9534f;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+        .btn-danger-outline:hover {
+            background-color: #d9534f;
+            color: white;
+            box-shadow: 0 4px 10px rgba(217, 83, 79, 0.3);
+        }
+
+    .btn-container {
+        margin-top: 18px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .text-center.mt-4 a {
+        color: #7b5fc3;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+        .text-center.mt-4 a:hover {
+            color: #5c3a8a;
+            text-decoration: underline;
+        }
+</style>
+
+<h2 class="text-lavender">🛍 My Orders</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-center text-muted fs-5">You haven't placed any orders yet.</p>
+}
+else
+{
+    foreach (var order in Model)
+    {
+        <div class="order-card">
+            <div class="order-header">
+                <div>
+                    <span>Order #: <strong>@order.OrderId</strong></span>
+                    <span class="order-status ms-3">@order.Status.ToUpper()</span>
+                </div>
+                <span class="order-date">@order.OrderDate.ToString("dd MMM yyyy")</span>
+            </div>
+
+            <div class="order-total">Total: @order.TotalAmount</div>
+
+            <div class="btn-container">
+                <a asp-controller="Orders" asp-action="Details" asp-route-id="@order.OrderId"
+                   class="btn btn-lavender-outline">
+                    <i class="bi bi-eye me-1"></i> View Details
+                </a>
+
+                @if (order.Status == "Pending")
+                {
+                    <form asp-controller="Orders" asp-action="CancelOrder" asp-route-id="@order.OrderId" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger-outline">
+                            <i class="bi bi-x-circle me-1"></i> Cancel Order
+                        </button>
+                    </form>
+                }
+            </div>
+
+            @foreach (var item in order.OrderItems)
+            {
+                <div class="product-item">
+                    <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="product-img" />
+                    <div class="product-details">
+                        <strong>@item.Product.Name</strong>
+                        <div>Quantity: @item.Quantity</div>
+                        <div>Price: @item.Product.Price</div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+
+<div class="text-center mt-4">
+    <a asp-action="Index" class="btn-lavender-outline">
+        ← Back to Profile
+    </a>
+</div>

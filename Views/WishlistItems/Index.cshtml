@@ -1,0 +1,946 @@
+﻿@model IEnumerable<Lavender_Veil.Models.WishlistItem>
+<!DOCTYPE html>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>LavenderVeil - Favorites</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="/Images/Lavender_Veil_logo-Photoroom.png" rel="icon">
+    <link href="/Images/Lavender_Veil_logo-Photoroom.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/drift-zoom/drift-basic.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/rtl.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #f9f3fb;
+        }
+
+        .text-lavender {
+            color: #7f57b3;
+        }
+
+        .btn-lavender {
+            background-color: #a07cc5;
+            color: white;
+            border-radius: 10px;
+        }
+
+            .btn-lavender:hover {
+                background-color: #8c68b0;
+            }
+
+        .wishlist-item {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(128, 0, 128, 0.08);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .wishlist-item .product-name {
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: #5d3a8a;
+            }
+
+        .btn-remove {
+            border: none;
+            background-color: #ffdde2;
+            color: #a30027;
+            padding: 6px 10px;
+            border-radius: 8px;
+        }
+
+            .btn-remove:hover {
+                background-color: #ffa6b1;
+                color: white;
+            }
+
+        .search-bar {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .search-input {
+            border: 2px solid #c8a2c8;
+            border-radius: 25px 0 0 25px;
+            padding: 10px 15px;
+            background-color: #fdfdff;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(123, 104, 238, 0.1);
+        }
+
+            .search-input:focus {
+                border-color: #9370db;
+                box-shadow: 0 0 8px rgba(147, 112, 219, 0.3);
+            }
+
+        .btn-search {
+            border: 2px solid #c8a2c8;
+            background-color: #c8a2c8;
+            color: white;
+            border-radius: 0 25px 25px 0;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+            .btn-search:hover {
+                background-color: #b57edc;
+                color: #fff;
+            }
+    </style>
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header position-relative">
+        @* <!-- Top Bar --> *@
+        @* <div class="top-bar py-2 d-none d-lg-block"> *@
+        @*     <div class="container-fluid container-xl"> *@
+        @*         <div class="row align-items-center"> *@
+        @*             <div class="col-lg-6"> *@
+        @*                 <div class="d-flex align-items-center"> *@
+        @*                     <div class="top-bar-item me-4"> *@
+        @*                         <i class="bi bi-telephone-fill me-2"></i> *@
+        @*                         <span data-translate-key="customer_support">Customer Support: </span> *@
+        @*                         <a href="tel:+962788314974">+962 78 831 4974</a> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item"> *@
+        @*                         <i class="bi bi-envelope-fill me-2"></i> *@
+        @*                         <a href="mailto:lavenderveilzuj@gmail.com">lavenderveilzuj@gmail.com</a> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <div class="col-lg-6"> *@
+        @*                 <div class="d-flex justify-content-end"> *@
+        @*                     <div class="top-bar-item me-4"> *@
+        @*                         <a href="track-order.html"> *@
+        @*                             <i class="bi bi-truck me-2"></i><span data-translate-key="track_order">Track Order</span> *@
+        @*                         </a> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item dropdown me-4"> *@
+        @*                         <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"> *@
+        @*                             <i class="bi bi-translate me-2"></i>English *@
+        @*                         </a> *@
+        @*                         <ul class="dropdown-menu me-4"> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="ar">العربية</a></li> *@
+        @*                             <li><a class="dropdown-item active" href="#" data-lang="en"><i class="bi bi-check2 me-2 selected-icon"></i>English</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="es">Español</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li> *@
+        @*                         </ul> *@
+        @*                     </div> *@
+        @*                     <div class="top-bar-item dropdown"> *@
+        @*                         <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"> *@
+        @*                             <i class="bi bi-currency-dollar me-2"></i>USD *@
+        @*                         </a> *@
+        @*                         <ul class="dropdown-menu"> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="JOR"><i class="bi bi-check2 me-2 selected-icon"></i>JOR</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="USD">USD</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="EUR">EUR</a></li> *@
+        @*                             <li><a class="dropdown-item" href="#" data-currency="GBP">GBP</a></li> *@
+        @*                         </ul> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+        @*         </div> *@
+        @*     </div> *@
+        @* </div> *@
+
+        <!-- Main Header -->
+        <div class="main-header">
+            <div class="container-fluid container-xl">
+                <div class="d-flex py-3 align-items-center justify-content-between">
+
+                    <!-- Logo -->
+                    <a href="index.html">
+                        <img src="/Images/LavenderVeil_FullLogo.svg" style="width: 250px; height: auto;" alt="Lavender Veil Logo">
+                    </a>
+
+                    <form asp-controller="Products" asp-action="Search" method="get" class="search-bar d-flex align-items-center">
+                        <div class="input-group">
+                            <input type="search" name="query" class="form-control search-input" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-search" type="submit">
+                                🔍
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Actions -->
+                    <div class="header-actions d-flex align-items-center justify-content-end">
+
+                        <!-- Mobile Search Toggle -->
+                        <button class="header-action-btn mobile-search-toggle d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-expanded="false" aria-controls="mobileSearch">
+                            <i class="bi bi-search"></i>
+                        </button>
+
+                        <!-- Account -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="dropdown account-dropdown">
+                                <button class="header-action-btn" data-bs-toggle="dropdown">
+                                    <i class="bi bi-person"></i>
+                                    <span class="action-text d-none d-md-inline-block" data-translate-key="account">Account</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-header">
+                                        <h6>Welcome to <span class="sitename">LavenderVeil</span></h6>
+                                        <p class="mb-0">Access account &amp; manage orders</p>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="Profile" asp-action="Index">
+                                            <i class="bi bi-person-circle me-2"></i>
+                                            <span>My Profile</span>
+                                        </a>
+
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="Profile" asp-action="Orders">
+                                            <i class="bi bi-bag-check me-2"></i>
+                                            <span>My Orders</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center" asp-controller="WishlistItems" asp-action="Index">
+                                            <i class="bi bi-heart me-2"></i>
+                                            <span>My Wishlist</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-footer">
+                                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline w-100">
+                                            <button type="submit" class="btn btn-outline-secondary w-100">Logout</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <a asp-controller="Account" asp-action="Login" class="btn btn-lavender login-button">
+                                <i class="bi bi-box-arrow-in-right me-1"></i>
+                                <span class="action-text">Login</span>
+                            </a>
+                        }
+
+                        <!-- Wishlist -->
+                        <a asp-controller="WishlistItems" asp-action="Index" class="header-action-btn d-none d-md-flex">
+                            <i class="bi bi-heart"></i>
+                            <span class="action-text d-none d-md-inline-block" data-translate-key="wishlist">Wishlist</span>
+                            
+                        </a>
+
+
+                        <!-- Cart -->
+                        <a asp-controller="CartItems" asp-action="Index" class="header-action-btn d-none d-md-flex">
+                            <i class="bi bi-cart3"></i>
+                            <span class="action-text d-none d-md-inline-block" data-translate-key="cart">Cart</span>
+                            
+                        </a>
+
+
+                        <!-- Mobile Navigation Toggle -->
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list me-0"></i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="header-nav">
+            <div class="container-fluid container-xl position-relative">
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index" class="active"><span data-translate-key="nav_home">Home</span></a></li>
+                        <li><a asp-controller="Home" asp-action="About"><span data-translate-key="nav_about">About</span></a></li>
+                       
+                        <li><a asp-controller="Products" asp-action="Shop"><span data-translate-key="nav_product_details">Products</span></a></li>
+                        <li><a asp-controller="CartItems" asp-action="Index"><span data-translate-key="nav_cart">Cart</span></a></li>
+                        <li><a asp-controller="Profile" asp-action="Orders"><span data-translate-key="nav_checkout">My Orders</span></asp-controller></a></li>
+
+
+                        <!-- End Products Mega Menu 1 -->
+                        <!-- Products Mega Menu 1 =========================================================================== 1 -->
+                        <!-- Products Menu -->
+                        <li class="products-megamenu-2">
+                            <a href="#"><span>Menu</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+
+                            <!-- Products Menu Mobile View -->
+                            <ul class="mobile-megamenu">
+
+                                <li class="dropdown">
+                                    <a href="#"><span>Clothing</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                    <ul>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="1">Skirts</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="3">Hijabs</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="4">Swimwear</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="5">Abayas</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="6">Tops</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="7">Outwear Sets</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="9">Dresses</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="10">Thobes</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="11">Prayer set</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#"><span>Accessories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                    <ul>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="2">Accessories</a></li>
+                                        <li><a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="8">Hijab's Accessories</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul><!-- End Products Menu Mobile View -->
+                            <!-- Products Menu Desktop View -->
+                            <div class="desktop-megamenu">
+
+                                <!-- Tabs Content -->
+                                <div class="megamenu-content tab-content">
+
+                                    <!-- Women Tab -->
+                                    <div class="tab-pane fade show active" role="tabpanel">
+                                        <div class="category-layout">
+                                            <div class="categories-section">
+                                                <div class="category-headers">
+                                                    <h4>Clothing</h4>
+                                                    <h4>Accessories</h4>
+                                                </div>
+
+                                                <div class="category-links">
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="1">Skirts</a>
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="2">Accessories</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="3">Hijabs</a>
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="8">Hijab's Accessories</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="4">Swimwear</a>
+                                                        <a asp-controller="Products" asp-action="Shop" >View all</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="5">Abayas</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="6">Tops</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="7">Outwear Sets</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="9">Dresses</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="10">Thobes</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="ByCategory" asp-route-categoryId="11">Prayer set</a>
+                                                    </div>
+                                                    <div class="link-row">
+                                                        <a asp-controller="Products" asp-action="Shop" >View all</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="featured-section">
+                                                <div class="featured-image">
+                                                    <img src="/Images/product/Dresses/photo_5877542043566328620_y.jpg" alt="Featured Dresses Collection" class="img-fluid" style="height: 85%; width: auto;">
+                                                    <div class="featured-content">
+                                                        <h3>New<br>Dresses<br>Collection</h3>
+                                                        <a asp-controller="Products" asp-action="Shop" class="btn-shop">Shop now</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div><!-- End Products Menu Desktop View -->
+
+                        </li><!-- End Products Menu -->
+
+                        <li><a asp-controller="Contact" asp-action="Contact"><span data-translate-key="nav_contact">Contact</span></a></li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Announcement Bar -->
+        <div class="announcement-bar py-2">
+            <div class="container-fluid container-xl">
+                <div class="announcement-slider swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                            "delay": 5000
+                          },
+                          "slidesPerView": 1,
+                          "effect": "slide",
+                          "direction": "vertical"
+                        }
+                    </script>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">🚚 Free shipping on orders over $50</div>
+                        <div class="swiper-slide">💰 30 days money back guarantee</div>
+                        <div class="swiper-slide">🎁 20% off on your first order - Use code: FIRST20</div>
+                        <div class="swiper-slide">⚡ Flash Sale! Up to 70% off on selected items</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Form -->
+        <div class="collapse" id="mobileSearch">
+            <div class="container">
+                <form class="search-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for products...">
+                        <button class="btn search-btn" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </header>
+
+    <main id="main">
+
+        <!-- Page Title Section -->
+        <section id="page-title" class="page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>My Favorites</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-controller="Home"  asp-action="Index">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Favorites</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Page Title Section -->
+        <!-- Favorites Section -->
+        <section id="favorites" class="favorites section">
+            <div class="container">
+                <h2 class="text-lavender mb-4">💜 Your Wishlist</h2>
+
+                @if (!Model.Any())
+                {
+                    <div class="alert alert-info">
+                        Your wishlist is currently empty.
+                    </div>
+                }
+                else
+                {
+                    <div class="row g-4">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-6 col-lg-3">
+                                <div class="product-card">
+                                    <div class="product-image position-relative">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-productId="@item.ProductId">
+                                            <img src="@item.Product.ImageUrl" class="main-image img-fluid" alt="@item.Product.Name" />
+                                        </a>
+                                        <div class="product-overlay">
+                                            <div class="product-actions">
+                                                <form asp-controller="CartItems" asp-action="AddToCart" asp-route-productId="@item.ProductId" method="post" style="display:inline;">
+                                                    <button type="submit" class="action-btn" data-bs-toggle="tooltip" title="Add to Cart">
+                                                        <i class="bi bi-cart-plus"></i>
+                                                    </button>
+                                                </form>
+                                                <form asp-action="RemoveFromWishlist" method="post" class="d-inline">
+                                                    <input type="hidden" name="wishlistItemId" value="@item.WishlistItemId" />
+                                                    <button type="submit" class="action-btn" data-bs-toggle="tooltip" title="Remove from Wishlist">
+                                                        <i class="bi bi-x-circle"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-details text-center mt-2">
+                                        <div class="product-category">@item.Product.Category?.Name</div>
+                                        <h4 class="product-title">
+                                            <a asp-controller="Products" asp-action="Details" asp-route-productId="@item.ProductId">@item.Product.Name</a>
+                                        </h4>
+                                        <div class="product-price">@item.Product.Price JD</div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+
+        @*         <div class="favorites-header d-flex justify-content-between align-items-center mb-4"> *@
+        @*             <h4>Saved Items (4)</h4> *@
+        @*             <div class="favorites-actions"> *@
+        @*                 <button class="btn btn-outline-danger btn-sm">Remove All</button> *@
+        @*             </div> *@
+        @*         </div> *@
+
+        @*         <div class="row g-4"> *@
+        @*             <!-- Favorite Item 1 --> *@
+        @*             <div class="col-md-6 col-lg-3"> *@
+        @*                 <div class="product-card"> *@
+        @*                     <div class="product-image"> *@
+        @*                         <img src="/Images/product/Dresses/photo_5877542043566328621_y.jpg" class="main-image img-fluid" alt="Elegant Maxi Dress"> *@
+        @*                         <img src="/Images/product/Dresses/photo_5877542043566328622_y.jpg" class="hover-image img-fluid" alt="Elegant Maxi Dress - Alternate View"> *@
+        @*                         <div class="product-overlay"> *@
+        @*                             <div class="product-actions"> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Quick View"> *@
+        @*                                     <i class="bi bi-eye"></i> *@
+        @*                                 </button> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Add to Cart"> *@
+        @*                                     <i class="bi bi-cart-plus"></i> *@
+        @*                                 </button> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                         <div class="product-badge bestseller">Bestseller</div> *@
+        @*                     </div> *@
+        @*                     <div class="product-details"> *@
+        @*                         <div class="product-category">Dresses</div> *@
+        @*                         <h4 class="product-title"><a asp-controller="Products"  asp-action="Shop">Elegant Maxi Dress</a></h4> *@
+        @*                         <div class="product-meta"> *@
+        @*                             <div class="product-price">$69.99</div> *@
+        @*                             <div class="product-rating"> *@
+        @*                                 <i class="bi bi-star-fill"></i> *@
+        @*                                 4.9 <span>(112)</span> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                         <div class="favorite-actions mt-3"> *@
+        @*                             <button class="add-to-cart-btn mb-2 w-100"> Add to Cart</button> *@
+        @*                             <button class="btn btn-outline-danger btn-sm w-100">Remove</button> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <!-- Favorite Item 2 --> *@
+        @*             <div class="col-md-6 col-lg-3"> *@
+        @*                 <div class="product-card"> *@
+        @*                     <div class="product-image"> *@
+        @*                         <img src="/Images/product/Hijabs/photo_5877542043566328678_y.jpg" class="main-image img-fluid" alt="Premium Jersey Hijab"> *@
+        @*                         <img src="/Images/product/Hijabs/photo_5877685448229373723_y.jpg" class="hover-image img-fluid" alt="Premium Jersey Hijab - Alternate View"> *@
+        @*                         <div class="product-overlay"> *@
+        @*                             <div class="product-actions"> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Quick View"> *@
+        @*                                     <i class="bi bi-eye"></i> *@
+        @*                                 </button> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Add to Cart"> *@
+        @*                                     <i class="bi bi-cart-plus"></i> *@
+        @*                                 </button> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                         <div class="product-badge new">New</div> *@
+        @*                     </div> *@
+        @*                     <div class="product-details"> *@
+        @*                         <div class="product-category">Hijabs</div> *@
+        @*                         <h4 class="product-title"><a asp-controller="Products"  asp-action="Shop">Premium Jersey Hijab</a></h4> *@
+        @*                         <div class="product-meta"> *@
+        @*                             <div class="product-price">$24.99</div> *@
+        @*                             <div class="product-rating"> *@
+        @*                                 <i class="bi bi-star-fill"></i> *@
+        @*                                 4.8 <span>(89)</span> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                         <div class="favorite-actions mt-3"> *@
+        @*                             <button class="add-to-cart-btn mb-2 w-100">Add to Cart</button> *@
+        @*                             <button class="btn btn-outline-danger btn-sm w-100">Remove</button> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <!-- Favorite Item 3 --> *@
+        @*             <div class="col-md-6 col-lg-3"> *@
+        @*                 <div class="product-card"> *@
+        @*                     <div class="product-image"> *@
+        @*                         <img src="/Images/product/Sets/photo_5877542043566328467_y.jpg" class="main-image img-fluid" alt="Elegant Modest Set"> *@
+        @*                         <img src="/Images/product/Sets/photo_5877542043566328468_y.jpg" class="hover-image img-fluid" alt="Elegant Modest Set - Alternate View"> *@
+        @*                         <div class="product-overlay"> *@
+        @*                             <div class="product-actions"> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Quick View"> *@
+        @*                                     <i class="bi bi-eye"></i> *@
+        @*                                 </button> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Add to Cart"> *@
+        @*                                     <i class="bi bi-cart-plus"></i> *@
+        @*                                 </button> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                         <div class="product-badge sale">-15%</div> *@
+        @*                     </div> *@
+        @*                     <div class="product-details"> *@
+        @*                         <div class="product-category">Outwear Sets</div> *@
+        @*                         <h4 class="product-title"><a asp-controller="Products"  asp-action="Shop">Elegant Modest Set</a></h4> *@
+        @*                         <div class="product-meta"> *@
+        @*                             <div class="product-price"> *@
+        @*                                 <span class="current-price">$76.49</span> *@
+        @*                                 <span class="old-price">$89.99</span> *@
+        @*                             </div> *@
+        @*                             <div class="product-rating"> *@
+        @*                                 <i class="bi bi-star-fill"></i> *@
+        @*                                 4.7 <span>(36)</span> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                         <div class="favorite-actions mt-3"> *@
+        @*                             <button class="add-to-cart-btn mb-2 w-100">Add to Cart</button> *@
+        @*                             <button class="btn btn-outline-danger btn-sm w-100">Remove</button> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <!-- Favorite Item 4 --> *@
+        @*             <div class="col-md-6 col-lg-3"> *@
+        @*                 <div class="product-card"> *@
+        @*                     <div class="product-image"> *@
+        @*                         <img src="/Images/product/Abayas/photo_5877542043566328558_y.jpg" class="main-image img-fluid" alt="Classic Elegant Abaya"> *@
+        @*                         <img src="/Images/product/Abayas/photo_5877542043566328559_y.jpg" class="hover-image img-fluid" alt="Classic Elegant Abaya - Alternate View"> *@
+        @*                         <div class="product-overlay"> *@
+        @*                             <div class="product-actions"> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Quick View"> *@
+        @*                                     <i class="bi bi-eye"></i> *@
+        @*                                 </button> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Add to Cart"> *@
+        @*                                     <i class="bi bi-cart-plus"></i> *@
+        @*                                 </button> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                     <div class="product-details"> *@
+        @*                         <div class="product-category">Abayas</div> *@
+        @*                         <h4 class="product-title"><a asp-controller="Products"  asp-action="Shop">Classic Elegant Abaya</a></h4> *@
+        @*                         <div class="product-meta"> *@
+        @*                             <div class="product-price">$89.99</div> *@
+        @*                             <div class="product-rating"> *@
+        @*                                 <i class="bi bi-star-fill"></i> *@
+        @*                                 4.6 <span>(76)</span> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                         <div class="favorite-actions mt-3"> *@
+        @*                             <button class="add-to-cart-btn mb-2 w-100">Add to Cart</button> *@
+        @*                             <button class="btn btn-outline-danger btn-sm w-100">Remove</button> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+        @*         </div> *@
+
+        @*         <div class="empty-favorites-message text-center mt-5" style="display: none;"> *@
+        @*             <div class="empty-icon mb-4"> *@
+        @*                 <i class="bi bi-heart" style="font-size: 4rem; color: #ddd;"></i> *@
+        @*             </div> *@
+        @*             <h3>Your Favorites List is Empty</h3> *@
+        @*             <p class="text-muted">Save items you love to your favorites list. Review them anytime and easily move them to your cart.</p> *@
+        @*             <a asp-controller="Products"  asp-action="Shop" class="btn btn-primary mt-3">Continue Shopping</a> *@
+        @*         </div> *@
+
+        @*         <div class="favorites-footer mt-5"> *@
+        @*             <div class="row"> *@
+        @*                 <div class="col-md-6"> *@
+        @*                     <a asp-controller="Products"  asp-action="Shop" class="btn btn-outline-primary"> *@
+        @*                         <i class="bi bi-arrow-left me-2"></i> Continue Shopping *@
+        @*                     </a> *@
+        @*                 </div> *@
+        @*                 <div class="col-md-6 text-md-end"> *@
+        @*                     <button class="btn btn-primary">Add All to Cart</button> *@
+        @*                 </div> *@
+        @*             </div> *@
+        @*         </div> *@
+
+        @*     </div> *@
+        @* </section><!-- /Favorites Section --> *@
+        @* <!-- Recently Viewed Section --> *@
+        @* <section id="recently-viewed" class="recently-viewed section light-background"> *@
+        @*     <div class="container"> *@
+
+        @*         <div class="section-title"> *@
+        @*             <h2>Recently Viewed</h2> *@
+        @*             <p>Products you've recently browsed</p> *@
+        @*         </div> *@
+
+        @*         <div class="row"> *@
+        @*             <!-- Product 1 --> *@
+        @*             <div class="col-6 col-md-3"> *@
+        @*                 <div class="product-card"> *@
+        @*                     <div class="product-image"> *@
+        @*                         <img src="/Images/product/Tops/photo_5877542043566328535_y.jpg" class="main-image img-fluid" alt="Product"> *@
+        @*                         <img src="/Images/product/Tops/photo_5877542043566328536_y.jpg" class="hover-image img-fluid" alt="Product Variant"> *@
+        @*                         <div class="product-overlay"> *@
+        @*                             <div class="product-actions"> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Quick View"> *@
+        @*                                     <i class="bi bi-eye"></i> *@
+        @*                                 </button> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Add to Cart"> *@
+        @*                                     <i class="bi bi-cart-plus"></i> *@
+        @*                                 </button> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                     <div class="product-details"> *@
+        @*                         <div class="product-category">Tops</div> *@
+        @*                         <h4 class="product-title"><a asp-controller="Products"  asp-action="Shop">Casual Modest Top</a></h4> *@
+        @*                         <div class="product-meta"> *@
+        @*                             <div class="product-price">$45.99</div> *@
+        @*                             <div class="product-rating"> *@
+        @*                                 <i class="bi bi-star-fill"></i> *@
+        @*                                 4.5 <span>(28)</span> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <!-- Product 2 --> *@
+        @*             <div class="col-6 col-md-3"> *@
+        @*                 <div class="product-card"> *@
+        @*                     <div class="product-image"> *@
+        @*                         <img src="/Images/product/Skirts/skirt10.jpg" class="main-image img-fluid" alt="Product"> *@
+        @*                         <img src="/Images/product/Skirts/skirt1.jpg" class="hover-image img-fluid" alt="Product Variant"> *@
+        @*                         <div class="product-overlay"> *@
+        @*                             <div class="product-actions"> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Quick View"> *@
+        @*                                     <i class="bi bi-eye"></i> *@
+        @*                                 </button> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Add to Cart"> *@
+        @*                                     <i class="bi bi-cart-plus"></i> *@
+        @*                                 </button> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                     <div class="product-details"> *@
+        @*                         <div class="product-category">Skirts</div> *@
+        @*                         <h4 class="product-title"><a asp-controller="Products"  asp-action="Shop">Flowy Modest Maxi Skirt</a></h4> *@
+        @*                         <div class="product-meta"> *@
+        @*                             <div class="product-price"> *@
+        @*                                 <span class="current-price">$49.99</span> *@
+        @*                                 <span class="old-price">$59.99</span> *@
+        @*                             </div> *@
+        @*                             <div class="product-rating"> *@
+        @*                                 <i class="bi bi-star-fill"></i> *@
+        @*                                 4.7 <span>(127)</span> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <!-- Product 3 --> *@
+        @*             <div class="col-6 col-md-3"> *@
+        @*                 <div class="product-card"> *@
+        @*                     <div class="product-image"> *@
+        @*                         <img src="/Images/product/Swimwear/photo_5877685448229373682_y.jpg" class="main-image img-fluid" alt="Product"> *@
+        @*                         <img src="/Images/product/Swimwear/photo_5877685448229373687_y.jpg" class="hover-image img-fluid" alt="Product Variant"> *@
+        @*                         <div class="product-overlay"> *@
+        @*                             <div class="product-actions"> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Quick View"> *@
+        @*                                     <i class="bi bi-eye"></i> *@
+        @*                                 </button> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Add to Cart"> *@
+        @*                                     <i class="bi bi-cart-plus"></i> *@
+        @*                                 </button> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                         <div class="product-badge sale">Sale</div> *@
+        @*                     </div> *@
+        @*                     <div class="product-details"> *@
+        @*                         <div class="product-category">Swimwear</div> *@
+        @*                         <h4 class="product-title"><a asp-controller="Products"  asp-action="Shop">Modest Swim Dress Set</a></h4> *@
+        @*                         <div class="product-meta"> *@
+        @*                             <div class="product-price"> *@
+        @*                                 <span class="current-price">$69.99</span> *@
+        @*                                 <span class="old-price">$89.99</span> *@
+        @*                             </div> *@
+        @*                             <div class="product-rating"> *@
+        @*                                 <i class="bi bi-star-fill"></i> *@
+        @*                                 4.4 <span>(42)</span> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*             <!-- Product 4 --> *@
+        @*             <div class="col-6 col-md-3"> *@
+        @*                 <div class="product-card"> *@
+        @*                     <div class="product-image"> *@
+        @*                         <img src="/Images/product/Prayer_sets/photo_5877685448229373579_y.jpg" class="main-image img-fluid" alt="Product"> *@
+        @*                         <img src="/Images/product/Prayer_sets/photo_5877685448229373580_y.jpg" class="hover-image img-fluid" alt="Product Variant"> *@
+        @*                         <div class="product-overlay"> *@
+        @*                             <div class="product-actions"> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Quick View"> *@
+        @*                                     <i class="bi bi-eye"></i> *@
+        @*                                 </button> *@
+        @*                                 <button type="button" class="action-btn" data-bs-toggle="tooltip" title="Add to Cart"> *@
+        @*                                     <i class="bi bi-cart-plus"></i> *@
+        @*                                 </button> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                         <div class="product-badge new">New</div> *@
+        @*                     </div> *@
+        @*                     <div class="product-details"> *@
+        @*                         <div class="product-category">Prayer Sets</div> *@
+        @*                         <h4 class="product-title"><a asp-controller="Products"  asp-action="Shop">Luxury Prayer Outfit</a></h4> *@
+        @*                         <div class="product-meta"> *@
+        @*                             <div class="product-price">$59.99</div> *@
+        @*                             <div class="product-rating"> *@
+        @*                                 <i class="bi bi-star-fill"></i> *@
+        @*                                 4.0 <span>(28)</span> *@
+        @*                             </div> *@
+        @*                         </div> *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+
+        @*         </div> *@
+
+            </div>
+        </section><!-- /Recently Viewed Section -->
+
+    </main>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/php-email-form/validate.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/Imagesloaded/Imagesloaded.pkgd.min.js"></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/drift-zoom/Drift.min.js"></script>
+    <script src="/vendor/purecounter/purecounter_vanilla.js"></script>
+
+    <!-- Main JS File -->
+    <script src="/js/translations.js"></script>
+    <script src="/js/currency-switcher.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script>
+        // Set current year in copyright
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Favorites page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+          // Remove individual item
+          const removeButtons = document.querySelectorAll('.favorite-actions .btn-outline-danger');
+          removeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              const productCard = this.closest('.product-card').parentElement;
+              productCard.classList.add('fade-out');
+
+              setTimeout(() => {
+                productCard.remove();
+                updateFavoritesCount();
+                checkEmptyFavorites();
+              }, 300);
+            });
+          });
+
+          // Remove all items
+          const removeAllButton = document.querySelector('.favorites-actions .btn-outline-danger');
+          if (removeAllButton) {
+            removeAllButton.addEventListener('click', function() {
+              if (confirm('Are you sure you want to remove all items from your favorites?')) {
+                const favoriteItems = document.querySelectorAll('.favorites .product-card');
+                favoriteItems.forEach(item => {
+                  item.parentElement.classList.add('fade-out');
+                });
+
+                setTimeout(() => {
+                  favoriteItems.forEach(item => {
+                    item.parentElement.remove();
+                  });
+                  updateFavoritesCount();
+                  checkEmptyFavorites();
+                }, 300);
+              }
+            });
+          }
+
+          // Add to cart functionality
+          const addToCartButtons = document.querySelectorAll('.favorite-actions .btn-primary');
+          addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              // In a real implementation, this would add the item to the cart
+              alert('Item added to cart!');
+            });
+          });
+
+          // Add all to cart
+          const addAllButton = document.querySelector('.favorites-footer .btn-primary');
+          if (addAllButton) {
+            addAllButton.addEventListener('click', function() {
+              // In a real implementation, this would add all items to the cart
+              alert('All items added to cart!');
+            });
+          }
+
+          // Helper functions
+          function updateFavoritesCount() {
+            const count = document.querySelectorAll('.favorites .product-card').length;
+            document.querySelector('.favorites-header h4').textContent = `Saved Items (${count})`;
+            document.querySelector('.header-action-btn.active .badge').textContent = count;
+          }
+
+          function checkEmptyFavorites() {
+            const count = document.querySelectorAll('.favorites .product-card').length;
+            const emptyMessage = document.querySelector('.empty-favorites-message');
+            const favoritesContent = document.querySelector('.favorites .row.g-4');
+            const favoritesFooter = document.querySelector('.favorites-footer');
+            const favoritesHeader = document.querySelector('.favorites-header');
+
+            if (count === 0) {
+              emptyMessage.style.display = 'block';
+              favoritesContent.style.display = 'none';
+              favoritesFooter.style.display = 'none';
+              favoritesHeader.style.display = 'none';
+            } else {
+              emptyMessage.style.display = 'none';
+              favoritesContent.style.display = 'flex';
+              favoritesFooter.style.display = 'block';
+              favoritesHeader.style.display = 'flex';
+            }
+          }
+        });
+    </script>
+
+</body>
+
+</html>
